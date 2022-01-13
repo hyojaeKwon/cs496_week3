@@ -1,6 +1,12 @@
 import React from "react";
 import styled from 'styled-components';
-import {Background,Textholder,Subtitle,Title,CardHolder} from "./TrendingSite";
+
+import Background from "./FirstComponent";
+import Textholder from "./TrendingSite";
+import Subtitle from "./TrendingSite";
+import CardHolder from "./TrendingSite";
+import Title from "./TrendingSite";
+import PostCard from "./PostCard";
 
 import "swiper/swiper.min.css";
 import "swiper/components/navigation/navigation.min.css";
@@ -13,7 +19,7 @@ const Container = styled.div`
   border-radius: 8px;
 `;
 
-const PostCard = () => {
+const TrendingPost = () => {
   return (
     <Background>
       <Textholder>
@@ -25,25 +31,28 @@ const PostCard = () => {
         </Subtitle>
       </Textholder>
       <Swiper
-    spaceBetween={50}
+      spaceBetween={50}
       slidesPerView={1}
       centeredSlides
       onSlideChange={() => console.log("slide change")}
       pagination={{ clickable:true }}
       onSwiper={swiper => console.log(swiper)}
       >
-
-        {/* Post Card 가 들어가는 부분 */}
-
         <SwiperSlide>
           <CardHolder>
-
+            <PostCard/>
+            <PostCard/>
+            <PostCard/>
+            <PostCard/>
           </CardHolder>
         </SwiperSlide>
 
         <SwiperSlide>
           <CardHolder>
-
+            <PostCard/>
+            <PostCard/>
+            <PostCard/>
+            <PostCard/>
           </CardHolder>
         </SwiperSlide>
 
@@ -54,4 +63,4 @@ const PostCard = () => {
   );
 };
 
-export default PostCard;
+export default TrendingPost;

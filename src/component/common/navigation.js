@@ -61,8 +61,6 @@ const Navigation = () => {
                             여행 둘러보기
                         </Nav>
                     </NavMenuWrapper>
-            {/* <div style={{ width: '7%', display:'inline-block'}}></div> */}
-            {/* <div style={{ width: '25%', display: 'inline-block'}}></div> */}
                 <div>
                     <Nav to='/mypage' style={{'padding-right':"4px"}}>마이페이지</Nav>
                 </div>

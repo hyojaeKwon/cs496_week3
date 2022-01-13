@@ -12,45 +12,29 @@ const Container = styled.div`
   height: 333px;
   border-radius: 8px;
 `;
+const InnerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`;
+
+const WhereText = styled.div`
+  margin-bottom: 20px;
+  margin-left: 20px;
+  font-weight: 600;
+  font-size: 13px;
+`;
+
 
 const PostCard = () => {
   return (
-    <Background>
-      <Textholder>
-        <Title>
-        인기 포스트
-        </Title>
-        <Subtitle>
-        | NOW
-        </Subtitle>
-      </Textholder>
-      <Swiper
-    spaceBetween={50}
-      slidesPerView={1}
-      centeredSlides
-      onSlideChange={() => console.log("slide change")}
-      pagination={{ clickable:true }}
-      onSwiper={swiper => console.log(swiper)}
-      >
-
-        {/* Post Card 가 들어가는 부분 */}
-
-        <SwiperSlide>
-          <CardHolder>
-
-          </CardHolder>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <CardHolder>
-
-          </CardHolder>
-        </SwiperSlide>
-
-
-      </Swiper>
-    </Background>
-
+    <Container>
+      <InnerContainer>
+        <WhereText>
+          경기 고양시
+        </WhereText>
+      </InnerContainer>
+    </Container>
   );
 };
 
