@@ -1,15 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../img/logo.png';
 import styled from 'styled-components';
 
-const Logo = styled.div`
+const Logo = styled(Link)`
     display: inline-block;
     margin-top: 1%;
     margin-left: 0%;
     margin-right: 50%;
 `
 
-const AuthButton = styled.div`
+const AuthButton = styled(Link)`
     display: inline-block;
     padding: 0.3rem;
     margin-right: 2%;
@@ -27,11 +28,11 @@ const AuthButton = styled.div`
 const Header = () => {
     return(
         <div>
-            <Logo>
+            <Logo to='/'>
                 <img src={logo} width='200' height='60' alt='logo'/>
             </Logo>
-            <AuthButton>로그인</AuthButton>
-            <AuthButton>회원가입</AuthButton>
+            <AuthButton to='/login'>로그인</AuthButton>
+            <AuthButton to='/signin'>회원가입</AuthButton>
         </div>
     )
 }
