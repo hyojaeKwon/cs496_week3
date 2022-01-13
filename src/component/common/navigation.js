@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const NavBar = styled.div`
     display: inline-block;
     vertical-align: top;
-    width: 80rem;
+    width: 100%;
     margin-top: 2%;
     padding-bottom: 0.5%;
     border-bottom: 1px solid #e3e3e3;
@@ -30,11 +30,12 @@ const Nav = styled(Link)`
 const Navigation = () => {
     return(
         <NavBar>
+            <div style={{ width: '7%', display:'inline-block'}}></div>
             <Nav to='/intro'>리트래블</Nav>
             <Nav to='/plan'>여행 계획</Nav>
             <Nav to='/mymap'>나의 여행 지도</Nav>
             <Nav>여행 둘러보기</Nav>
-            <div style={{ width: '35%', display: 'inline-block'}}></div>
+            <div style={{ width: '25%', display: 'inline-block'}}></div>
             <Nav to='/mypage'>마이페이지</Nav>
         </NavBar>
     )
