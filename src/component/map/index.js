@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import areaname from '../../img/areaname.png';
 
 const Wrapper = styled.div`
+	width: 1060px;
     margin: 5rem 10rem;
 `;
 

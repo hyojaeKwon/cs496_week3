@@ -17,7 +17,7 @@ const SetComponent = styled.div`
 
 const Main = () => {
     return(
-        <SetComponent>
+        <div>
             <div>
                 <Header/>
                 <Navigation/>
@@ -30,7 +30,7 @@ const Main = () => {
             <TrendingPost/>
             <TrendingPost/>
 
-        </SetComponent>
+        </div>
     );
 };
 
