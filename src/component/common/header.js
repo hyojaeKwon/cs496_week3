@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const Logo = styled(Link)`
     display: inline-block;
     margin-top: 1%;
-    margin-left: 0%;
+    margin-left: 10%;
     margin-right: 50%;
 `
 
