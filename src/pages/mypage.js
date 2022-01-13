@@ -4,6 +4,7 @@ import Navigation from '../component/common/navigation';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
+    width: 1060px;
     margin-left: 10%;
     margin-top: 3rem;
 `
