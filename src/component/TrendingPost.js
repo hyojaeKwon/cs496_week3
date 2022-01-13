@@ -11,6 +11,7 @@ import styled from "styled-components";
   //"인기있는 여행지 약 4개를 뽑아서 보여준다."
 const BackGround = styled.div`
   width: 1060px;
+  margin-top: 70px;
 `;
 
 const CardHolder = styled.div`
