@@ -48,7 +48,7 @@ const FirstComponent = () => {
           RETRAVEL
         </MainText>
         <MainButton>
-          <p>ㄸㅓㄴㅏㅂㅗㄱㅣ</p>
+          <p>떠나보기</p>
         </MainButton>
       </TextHolder>
     </MainSquare>
