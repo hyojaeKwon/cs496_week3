@@ -1,11 +1,9 @@
 import React from "react";
 import styled from 'styled-components';
-import {Background,Textholder,Subtitle,Title,CardHolder} from "./TrendingSite";
+// import {Background,Textholder,Subtitle,Title,CardHolder} from "./TrendingSite";
 
 import "swiper/swiper.min.css";
 import "swiper/components/navigation/navigation.min.css";
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation } from "swiper";
 
 const Container = styled.div`
   width: 250px;

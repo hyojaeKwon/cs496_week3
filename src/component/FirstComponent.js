@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from "styled-components";
-import Img from "../img/free-main-image.jpg"
 
 //main페이지에 들어갈 첫번째 네모 css 파일 제작
 const MainSquare = styled.div`

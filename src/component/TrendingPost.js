@@ -1,6 +1,5 @@
 import React from "react";
 import styled from 'styled-components';
-
 import Background from "./FirstComponent";
 import Textholder from "./TrendingSite";
 import Subtitle from "./TrendingSite";
@@ -13,13 +12,15 @@ import "swiper/components/navigation/navigation.min.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
 
-const Container = styled.div`
-  width: 250px;
-  height: 333px;
-  border-radius: 8px;
-`;
+// const Container = styled.div`
+//   width: 250px;
+//   height: 333px;
+//   border-radius: 8px;
+// `;
 
 const TrendingPost = () => {
+  SwiperCore.use([Navigation]);
+
   return (
     <Background>
       <Textholder>

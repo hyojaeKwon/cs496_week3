@@ -22,14 +22,12 @@ const Main = () => {
                 <Header/>
                 <Navigation/>
             </div>
-
-            <FirstComponent/>
-            
-            <TrendingSite/>
-            <MainSwipe/>
-            <TrendingPost/>
-            <TrendingPost/>
-
+            <SetComponent>
+                <FirstComponent/>
+                <TrendingSite/>
+                <MainSwipe/>
+                <TrendingPost/>
+            </SetComponent>
         </div>
     );
 };
