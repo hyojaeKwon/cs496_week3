@@ -35,7 +35,7 @@ const Navigation = () => {
             <Nav to='/plan'>여행 계획</Nav>
             <Nav to='/mymap'>나의 여행 지도</Nav>
             <Nav>여행 둘러보기</Nav>
-            <div style={{ width: '25%', display: 'inline-block'}}></div>
+            <div style={{ width: '18%', display: 'inline-block'}}></div>
             <Nav to='/mypage'>마이페이지</Nav>
         </NavBar>
     )
