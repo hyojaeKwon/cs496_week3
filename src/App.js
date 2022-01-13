@@ -7,6 +7,7 @@ import MyMap from './pages/mymap';
 import MyPage from './pages/mypage';
 import Login from './pages/login';
 import Signin from './pages/signin';
+import UserPost from './pages/userpost';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <Route path="/mypage" component={MyPage}/>
         <Route path="/login" component={Login}/>
         <Route path="/signin" component={Signin}/>
-
+        <Route path="/post/:username/:area" component={UserPost}/>
     </div>
     
   );
