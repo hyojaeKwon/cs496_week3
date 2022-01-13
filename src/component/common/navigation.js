@@ -11,7 +11,7 @@ const NavBar = styled.div`
     border-bottom: 1px solid #e3e3e3;
 `
 const Nav = styled(Link)`
-    width: 6rem;
+    width: 7.5rem;
     height: 2rem;
     margin-left: 3%;
     text-align: center;
