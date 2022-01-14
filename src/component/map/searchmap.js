@@ -48,7 +48,7 @@ const Content = styled.div`
 `
 
 const Popup = ({area}) => {
-    const url = '/post/'+ area;
+    const url = '/search/post/'+ area;
 
     return(
         <PopupWrapper>
