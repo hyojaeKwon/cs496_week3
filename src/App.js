@@ -24,8 +24,8 @@ function App() {
         <Route path="/signin" component={Signin}/>
         <Route path="/post/:username/:area" component={UserPost}/>
         <Route path="/posting/:username/:area" component={Posting}/>
-        <Route path="/search" component={SearchPost}/>
-        <Route path="/post/:area" component={AreaPost}/>
+        <Route path="/search" exact={true} component={SearchPost}/>
+        <Route path="/search/post/:area" component={AreaPost}/>
     </div>
     
   );
