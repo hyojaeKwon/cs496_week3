@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const NavBar = styled.div`
@@ -33,7 +33,7 @@ const Navigation = () => {
             <Nav to='/intro'>리트래블</Nav>
             <Nav to='/plan'>여행 계획</Nav>
             <Nav to='/mymap'>나의 여행 지도</Nav>
-            <Nav>여행 둘러보기</Nav>
+            <Nav to='/search'>여행 둘러보기</Nav>
             <div style={{ width: '18%', display: 'inline-block'}}></div>
             <Nav to='/mypage'>마이페이지</Nav>
         </NavBar>

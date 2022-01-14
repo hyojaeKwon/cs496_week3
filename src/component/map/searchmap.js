@@ -48,7 +48,7 @@ const Content = styled.div`
 `
 
 const Popup = ({area}) => {
-    const url = '/post/최윤지/'+area;
+    const url = '/post/'+ area;
 
     return(
         <PopupWrapper>
@@ -88,7 +88,7 @@ const AreaName = styled.img`
 	pointer-events: none;
 `;
 
-const Map = () => {
+const SearchMap = () => {
     const [popup, handlePopup] = useState(false);
     const [area, setArea] = useState('');
     const close = () => {
@@ -1017,4 +1017,4 @@ const Map = () => {
     );
 }
 
-export default Map;
+export default SearchMap;
