@@ -9,28 +9,30 @@ import styled from "styled-components";
 
   //"인기 여행지 탭"
   //"인기있는 여행지 약 4개를 뽑아서 보여준다."
-const BackGround = styled.div`
+export const BackGround = styled.div`
   width: 1060px;
   margin-top: 70px;
 `;
 
-const CardHolder = styled.div`
+export const CardHolder = styled.div`
     display: flex;
     justify-content: space-between;
 `;
 
-const TextHolder = styled.div`
+export const TextHolder = styled.div`
   display: flex;
   margin-bottom: 22px;
+  align-items: center;
 `;
 
-const Title = styled.span`
+export const Title = styled.span`
   font-weight: 600;
   font-size: 36px;
   line-height: 42px;
+  margin-right: 10px;
 `;
 
-const SubTitle = styled.span`
+export const SubTitle = styled.span`
   font-size: 16px;
 `
 
