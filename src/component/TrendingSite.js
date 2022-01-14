@@ -15,8 +15,8 @@ const BackGround = styled.div`
 `;
 
 const CardHolder = styled.div`
-  display: flex;
-   justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 `;
 
 const TextHolder = styled.div`
