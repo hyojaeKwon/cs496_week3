@@ -8,6 +8,9 @@ import MyPage from './pages/mypage';
 import Login from './pages/login';
 import Signin from './pages/signin';
 import UserPost from './pages/userpost';
+import Posting from './pages/posting';
+import SearchPost from './pages/searchmap';
+import AreaPost from './pages/areapost';
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
         <Route path="/login" component={Login}/>
         <Route path="/signin" component={Signin}/>
         <Route path="/post/:username/:area" component={UserPost}/>
+        <Route path="/posting/:username/:area" component={Posting}/>
+        <Route path="/search" component={SearchPost}/>
+        <Route path="/post/:area" component={AreaPost}/>
     </div>
     
   );

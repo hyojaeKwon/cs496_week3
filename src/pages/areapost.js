@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Header from '../component/common/header';
 import Navigation from '../component/common/navigation';
 import styled from 'styled-components';
@@ -47,23 +46,9 @@ const Like = styled.div`
     font-weight: 600;
 `;
 
-const AddButton = styled(Link)`
-    font-size: 1.2rem;
-    font-weight: 500;
-    background-color: #4F8A8B;
-    display: inline-block;
-    color: white;
-    margin-left: 1300px;
-    padding: 0.3rem;
-    border-radius: 0.2rem;
-    text-decoration: none;
-`
 
-const UserPost = ({ match }) => {
-    const user = match.params.username;
+const AreaPost = ({ match }) => {
     const area = match.params.area;
-
-    const postingUrl = '/posting/' + user + '/' + area;
 
     return(
         <div>
@@ -71,7 +56,6 @@ const UserPost = ({ match }) => {
             <Navigation/>
             <div styled={{display: 'inline-block'}}>
                 <Title>RETRAVEL {area}</Title>
-                <AddButton to={postingUrl}>포스팅하기</AddButton>
             </div>
             <PostWrapper>
                 <PostPreview image='../img/travel.jpeg'>
@@ -112,4 +96,4 @@ const UserPost = ({ match }) => {
     )
 }
 
-export default UserPost;
+export default AreaPost;
