@@ -16,48 +16,48 @@ const SetComponent = styled.div`
 `;
 
 
-// function Main(){
-//     const [modalOpen, setModalOpen] = useState(false);
+function Main(){
+    const [modalOpen, setModalOpen] = useState(false);
 
-//     const openModal = () => {
-//         setModalOpen(true);
-//     }
+    const openModal = () => {
+        setModalOpen(true);
+    }
 
-//     const closeModal = () => {
-//         setModalOpen(false);
-//     }
-//     return(
-//         <React.Fragment>
-//             <button onClick={openModal}>
-//                 모달 팝업
-//             </button>
-//             <Modal open={modalOpen} close={closeModal} header="Modal heading">
-                
-//             </Modal>
-//         </React.Fragment>
-//     );
-
-// }
-
-
-
-const Main = () => {
+    const closeModal = () => {
+        setModalOpen(false);
+    }
     return(
-        <div>
-            <div>
-                <Header/>
-                <Navigation/>
-            </div>
-            <SetComponent>
-                <FirstComponent/>
-                <TrendingSite/>
-                <MainSwipe/>
-                <TrendingPost/>
-                <Footer/>
-            </SetComponent>
-        </div>
-        // <Modal/>
+        <React.Fragment>
+            <button onClick={openModal}>
+                모달 팝업
+            </button>
+            <Modal open={modalOpen} close={closeModal} header="Modal heading">
+                이 것은 모달 팝업입니다.
+            </Modal>
+        </React.Fragment>
     );
-};
+
+}
+
+
+
+// const Main = () => {
+//     return(
+//         <div>
+//             <div>
+//                 <Header/>
+//                 <Navigation/>
+//             </div>
+//             <SetComponent>
+//                 <FirstComponent/>
+//                 <TrendingSite/>
+//                 <MainSwipe/>
+//                 <TrendingPost/>
+//                 <Footer/>
+//             </SetComponent>
+//         </div>
+//         // <Modal/>
+//     );
+// };
 
 export default Main;
