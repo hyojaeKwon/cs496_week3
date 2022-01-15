@@ -1,40 +1,40 @@
 import React from "react";
-import styled from 'styled-components';
-import Textholder from "./TrendingSite";
-import Subtitle from "./TrendingSite";
-import CardHolder from "./TrendingSite";
-import Title from "./TrendingSite";
+// import Textholder from "./TrendingSite";
+// import Subtitle from "./TrendingSite";
+// import CardHolder from "./TrendingSite";
+// import Title from "./TrendingSite";
 import PostCard from "./PostCard";
-
+import styled from "styled-components";
+import { CardHolder, TextHolder, Title, SubTitle, BackGround  } from "./TrendingSite";
 import "swiper/swiper.min.css";
 import "swiper/components/navigation/navigation.min.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
 
-// const Container = styled.div`
-//   width: 250px;
-//   height: 333px;
-//   border-radius: 8px;
-// `;
-
-const BackGround = styled.div`
+const NewBackGround = styled(BackGround)`
+  margin-bottom: 70px;
   width: 1060px;
   margin-top: 70px;
 `;
+
+// const BackGround = styled.div`
+//   width: 1060px;
+//   margin-top: 70px;
+// `;
 
 const TrendingPost = () => {
   SwiperCore.use([Navigation]);
 
   return (
-    <BackGround>
-      <Textholder>
+<NewBackGround>
+      <TextHolder>
         <Title>
         인기 포스트
         </Title>
-        <Subtitle>
+        <SubTitle>
         | NOW
-        </Subtitle>
-      </Textholder>
+        </SubTitle>
+      </TextHolder>
       <Swiper
       spaceBetween={50}
       slidesPerView={1}
@@ -63,7 +63,8 @@ const TrendingPost = () => {
 
 
       </Swiper>
-    </BackGround>
+    </NewBackGround>
+    
 
   );
 };
