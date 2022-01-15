@@ -16,7 +16,8 @@ const SigninForm = () => {
 
     const onSubmit = e => {
         e.preventDault();
-        //로그인 구현
+        const { id, password } = form;
+        
         dispatch(
             initializeForm('signin')
         );
