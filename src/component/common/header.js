@@ -31,8 +31,8 @@ const Header = () => {
             <Logo to='/'>
                 <img src={logo} width='200' height='60' alt='logo'/>
             </Logo>
-            <AuthButton to='/login'>로그인</AuthButton>
-            <AuthButton to='/signin'>회원가입</AuthButton>
+            <AuthButton to='/signin'>로그인</AuthButton>
+            <AuthButton to='/signup'>회원가입</AuthButton>
         </div>
     )
 }

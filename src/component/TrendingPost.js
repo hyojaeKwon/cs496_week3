@@ -1,6 +1,5 @@
 import React from "react";
 import styled from 'styled-components';
-import Background from "./FirstComponent";
 import Textholder from "./TrendingSite";
 import Subtitle from "./TrendingSite";
 import CardHolder from "./TrendingSite";
@@ -18,11 +17,16 @@ import SwiperCore, { Navigation } from "swiper";
 //   border-radius: 8px;
 // `;
 
+const BackGround = styled.div`
+  width: 1060px;
+  margin-top: 70px;
+`;
+
 const TrendingPost = () => {
   SwiperCore.use([Navigation]);
 
   return (
-    <Background>
+    <BackGround>
       <Textholder>
         <Title>
         인기 포스트
@@ -59,7 +63,7 @@ const TrendingPost = () => {
 
 
       </Swiper>
-    </Background>
+    </BackGround>
 
   );
 };

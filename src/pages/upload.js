@@ -1,17 +1,18 @@
 import React from 'react';
 import Header from '../component/common/header';
 import Navigation from '../component/common/navigation';
+import UploadImg from '../component/post/uploadimg';
 
-const Posting = ({ match }) => {
+const Upload = ({ match }) => {
     const { username, area } = match.params;
 
     return(
         <div>
             <Header/>
             <Navigation/>
-            <div>This is {username } {area} posting page</div>
+            <UploadImg username={username} area={area}/>
         </div>
     )
 }
 
-export default Posting;
+export default Upload;

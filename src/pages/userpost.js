@@ -53,7 +53,7 @@ const AddButton = styled(Link)`
     background-color: #4F8A8B;
     display: inline-block;
     color: white;
-    margin-left: 1300px;
+    margin-left: 1000px;
     padding: 0.3rem;
     border-radius: 0.2rem;
     text-decoration: none;
