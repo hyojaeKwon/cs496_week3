@@ -18,6 +18,7 @@ import styled from 'styled-components';
 const ModalContainer = styled.div`
   /* width: 1000px;
   height: 20px; */
+  position: relative;
   width: 100%;
   height: 100%;
   @media (max-width: 1000px){
@@ -42,7 +43,7 @@ const ImgContainer = styled.div`
 `;
 
 const DescContainer = styled.div`
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   padding: 10px 10px;
   flex-direction: column;
@@ -50,52 +51,105 @@ const DescContainer = styled.div`
 
 const ToWhere = styled.div`
   width: 100%;
-  font-size: 30px;
-  font-weight: 600;
+  font-size: 15px;
+  padding-top: 10px;
+  font-weight: 500;
+  padding-bottom: 15px;
+  color: #3d393d;
+  border-bottom: 0.5px solid #4F8A8B;
 `;
 
 const Author = styled.div`
+  font-size : 25px;
+  padding-top: 10px;
+  font-weight: 700;
+  padding-bottom: 20px;
+  border-bottom: .5px solid #4F8A8B;
 `
+const AuthorSpan = styled.span`
+  font-size : 18px;
+  color: #393D39;
+`;
 
+const Place = styled.div`
+  padding-top: 10px;
+  font-size: 30px;
+  font-weight: 650;
+`;
+
+const Text = styled.div`
+  color: #4F8A8B;
+  font-size: 12px;
+  /* line-height: 0.2em; */
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border-bottom: 0.5px solid #4F8A8B;
+`;
+
+const Like = styled.button`
+  margin-top: 14px;
+  margin-right: 10px;
+`;
+
+const Back = styled.img`
+  position: absolute;
+  top: 2px;
+  right:18px;
+  width : 5px;
+  height: auto;
+`
 const Modal = (props) => {
+
+  Section.onClick = function(event){
+    console.log(event.target.tagName)
+    if(event.target.tagName == this.tagName){
+      Section={close};
+    }
+  }
+
   // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
-  const { open, close, name, where, author } = props;
+  const { open, close, name, where, author, place,number } = props;
   return (
     // 모달이 열릴때 openModal 클래스가 생성된다.
     <div className={open ? 'openModal modal' : 'modal'}>
       {open ? (
         <Section>
-          <Header>
-            {name}님의 게시물
-            <HeaderBtn className="close" onClick={close}>
-              {' '}
-              &times;{' '}
-            </HeaderBtn>
-          </Header>
+          
           <Main>
             <ModalContainer>
+              <Back src='../../img/back.png' className="close" onClick={close}></Back>
               <ImgContainer/>
               <DescContainer>
-                <div>
-                  <ToWhere>
-                    {where}경기도 창원시
-                  </ToWhere>
                   <Author>
                     {author} 최윤지
-                    <span style={'font-size':'14px'}>
+                    <AuthorSpan>
                       님의 포스트 입니다.
-                    </span>
+                    </AuthorSpan>
                   </Author>
+                <Place>
+                    {place}Square 81
+                </Place>
+                <ToWhere>
+                    {where}경기도 창원시
+                </ToWhere>
+                <Text>
+                  안녕하세요, 안녕하세요, 안녕하세요, 안녕하세요, 안녕하세요, 안녕하세요, 안녕하세요, 안녕하세요, 안녕하세요, 안녕하세요, 안녕하세요, 
+                </Text>
+                <div style={{'display':'flex'}}>
+                  <Like>좋아요</Like>
+                  <span style={{'margin-top':'14px'}}>
+                    {number} 28개
+                  </span>
                 </div>
               </DescContainer>
             </ModalContainer>
           </Main>
-          <Footer>
+          {/* <Footer>
             <FooterBtn className="close" onClick={close}>
               {' '}
               close{' '}
             </FooterBtn>
-          </Footer>
+          </Footer> */}
         </Section>
       ) : null}
     </div>
@@ -138,7 +192,7 @@ const HeaderBtn = styled.button`
 
 
 const Main = styled.div`
-  padding: 16px;
+  /* padding: 16px; */
   border-bottom: 1px solid #dee2e6;
   border-top: 1px solid #ffffff;
 `;

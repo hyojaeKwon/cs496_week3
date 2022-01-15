@@ -1,9 +1,10 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../component/common/header';
 import Navigation from '../component/common/navigation';
 import styled from 'styled-components';
 import travel from '../img/travel.jpeg';
+import Modal from '../component/Modals/Modal'
 
 const Title = styled.div`
     font-size: 2.5rem;
@@ -65,6 +66,18 @@ const UserPost = ({ match }) => {
 
     const postingUrl = '/posting/' + user + '/' + area;
 
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const openModal = () => {
+        console.log('clicked');
+        setModalOpen(true);
+        
+    }
+
+    const closeModal = () => {
+        setModalOpen(false);
+    }
+    
     return(
         <div>
             <Header/>
@@ -74,39 +87,41 @@ const UserPost = ({ match }) => {
                 <AddButton to={postingUrl}>포스팅하기</AddButton>
             </div>
             <PostWrapper>
-                <PostPreview image='../img/travel.jpeg'>
+                <PostPreview image='../img/travel.jpeg' onClick={openModal}>
                     <AreaName>{area}</AreaName>
                     <Like>♡10</Like>
                 </PostPreview>
-                <PostPreview image='../img/travel.jpeg'>
+                <PostPreview image='../img/travel.jpeg' onClick={openModal}>
                     <AreaName>{area}</AreaName>
                     <Like>♡10</Like>
                 </PostPreview>
-                <PostPreview image='../img/travel.jpeg'>
+                <PostPreview image='../img/travel.jpeg' onClick={openModal}>
                     <AreaName>{area}</AreaName>
                     <Like>♡10</Like>
                 </PostPreview>
-                <PostPreview image='../img/travel.jpeg'>
+                <PostPreview image='../img/travel.jpeg' onClick={openModal}>
                     <AreaName>{area}</AreaName>
                     <Like>♡10</Like>
                 </PostPreview>
-                <PostPreview image='../img/travel.jpeg'>
+                <PostPreview image='../img/travel.jpeg' onClick={openModal}>
                     <AreaName>{area}</AreaName>
                     <Like>♡10</Like>
                 </PostPreview>
-                <PostPreview image='../img/travel.jpeg'>
+                <PostPreview image='../img/travel.jpeg' onClick={openModal}>
                     <AreaName>{area}</AreaName>
                     <Like>♡10</Like>
                 </PostPreview>
-                <PostPreview image='../img/travel.jpeg'>
+                <PostPreview image='../img/travel.jpeg' onClick={openModal}>
                     <AreaName>{area}</AreaName>
                     <Like>♡10</Like>
                 </PostPreview>
-                <PostPreview image='../img/travel.jpeg'>
+                <PostPreview image='../img/travel.jpeg' onClick={openModal}>
                     <AreaName>{area}</AreaName>
                     <Like>♡10</Like>
                 </PostPreview>
             </PostWrapper>
+            <Modal open={modalOpen} close={closeModal} header="Modal heading">
+            </Modal>
            
         </div>
     )
