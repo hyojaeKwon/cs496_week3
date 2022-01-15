@@ -16,7 +16,22 @@ const SignupForm = () => {
 
     const onSubmit = e => {
         e.preventDault();
-        //회원가입 구현
+        const { id, name, password, passwordConfirm } = form;
+
+        if(password !== passwordConfirm) {
+            console.log('password mismatch!')
+            return;
+        }
+
+        const SignupData = {
+            id: id,
+            name: name,
+            password: password,
+        };
+
+        // Signup api 호출
+
+
         dispatch(
             initializeForm('signup')
         );

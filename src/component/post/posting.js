@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
+import location from '../../img/location.png';
+import KaKaoMap from './kakaomap';
+import MapModal from './mapmodal';
 
 const Wrapper = styled.div`
     margin-left: 15%;
@@ -42,21 +45,24 @@ const Content = styled.input`
     :focus { outline: none; };
 `
 
-const PlaceInput = styled.input`
+const PlaceInput = styled.button`
     position: absolute;
     top: 600px;
     width: 500px;
     height: 50px;
     border: none;
     border-bottom: 2px solid #e3e3e3;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     font-size: 1.1rem;
     font-weight: 600;
+    background-color: white;
     color: #686D76;
 
     :focus { outline: none; };
 `
-const DateInput = styled.input`
+const CostInput = styled.input`
     position: absolute;
     top: 655px;
     width: 500px;
@@ -68,10 +74,11 @@ const DateInput = styled.input`
     font-weight: 600;
     color: #686D76;
 
+    -webkit-appearance: none;
     :focus { outline: none; };
 `
 
-const CostInput = styled.input`
+const DateInput = styled.input`
     position: absolute;
     top: 710px;
     width: 500px;
@@ -88,6 +95,15 @@ const CostInput = styled.input`
 
 const Posting = ({ username, area, files}) => {
     const [date, setDate] = useState(new Date());
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const openModal = () => {
+        setModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalOpen(false);
+    };
 
     return(
         <Wrapper>
@@ -96,9 +112,12 @@ const Posting = ({ username, area, files}) => {
             <div style={{width: '1000px', borderBottom: '2px solid #e3e3e3', marginTop: '1rem'}}/>
             <FirstImg src={files[0]}></FirstImg>
             <Content textAlignVertical='top' placeholder='내용 입력하기'/>
-            <PlaceInput placeholder='위치 추가하기'></PlaceInput>
-            <DatePicker style={{width: '500px'}} selected={date} onChange={date => setDate(date)}></DatePicker>
-            <CostInput placeholder='사용경비 추가하기'></CostInput>
+            <PlaceInput onClick={openModal}>
+                <div style={{display: 'inline-block'}}>위치 추가하기</div>
+                <img src={location} alt='location' width={30} style={{marginLeft: '15px'}}/>
+            </PlaceInput>
+            <CostInput type='number' min='0' placeholder='사용경비 추가하기'></CostInput>
+            <MapModal open={modalOpen} close={closeModal} header="Modal heading"></MapModal>
         </Wrapper>
     )
 }
