@@ -1,15 +1,16 @@
 import React from 'react';
 import Header from '../component/common/header';
 import Navigation from '../component/common/navigation';
+import SignupForm from '../container/auth/signupform';
 
-const Login = () => {
+const Signup = () => {
     return(
         <div>
             <Header/>
             <Navigation/>
-            <div>This is Login</div>
+            <SignupForm/>
         </div>
     )
 };
 
-export default Login;
+export default Signup;

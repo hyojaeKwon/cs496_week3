@@ -17,6 +17,11 @@ const NewBackGround = styled(BackGround)`
   margin-top: 70px;
 `;
 
+// const BackGround = styled.div`
+//   width: 1060px;
+//   margin-top: 70px;
+// `;
+
 const TrendingPost = () => {
   SwiperCore.use([Navigation]);
 

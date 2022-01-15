@@ -5,10 +5,11 @@ import Intro from './pages/intro';
 import Plan from './pages/plan';
 import MyMap from './pages/mymap';
 import MyPage from './pages/mypage';
-import Login from './pages/login';
 import Signin from './pages/signin';
+import Signup from './pages/signup';
 import UserPost from './pages/userpost';
-import Posting from './pages/posting';
+import Upload from './pages/upload';
+import Post from './pages/post';
 import SearchPost from './pages/searchmap';
 import AreaPost from './pages/areapost';
 
@@ -20,10 +21,11 @@ function App() {
         <Route path="/plan" component={Plan}/>
         <Route path="/mymap" component={MyMap}/>
         <Route path="/mypage" component={MyPage}/>
-        <Route path="/login" component={Login}/>
         <Route path="/signin" component={Signin}/>
+        <Route path="/signup" component={Signup}/>
         <Route path="/post/:username/:area" component={UserPost}/>
-        <Route path="/posting/:username/:area" component={Posting}/>
+        <Route path="/posting/:username/:area" exact={true} component={Upload}/>
+        <Route path="/posting/:username/:area/detail" exact={true} component={Post}/>
         <Route path="/search" exact={true} component={SearchPost}/>
         <Route path="/search/post/:area" component={AreaPost}/>
     </div>
