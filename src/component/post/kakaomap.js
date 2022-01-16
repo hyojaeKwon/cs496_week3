@@ -10,17 +10,26 @@ const ResultItem = styled.div`
     color: #5c5c5c;
 `;
 
+const Container = styled.div`
+  display : flex;
+  width: 100%;
+  height: 600px;
+`
 const ResultList = styled.div`
-    display: absolute;
-    left: 400;
-    top: 0;
+    // display: absolute;
+    // left: 400;
+    // top: 0;
+    width: 100%;
+    height: 800px;
+    margin-left : 20px;
+    overflow: scroll;
 `
 
 const MapContainer = styled.div`
-    width: 550px;
-    height: 550px;
-    display: absolute;
-    left: 0;
+    width: 1000px;
+    height: 600px;
+    // display: absolute;
+    // left: 0;
 
 `;
 
@@ -29,7 +38,7 @@ const Pagination = styled.div`
 `
 const { kakao } = window
 
-const Map = ({ searchPlace }) => {
+const Map = ({ searchPlace, addPlace, addLatitude, addLongitude, close }) => {
 
   // 검색결과 배열에 담아줌
   const [Places, setPlaces] = useState([])
@@ -109,17 +118,24 @@ const Map = ({ searchPlace }) => {
   }, [searchPlace])
 
   return (
-    <div>
+    <Container>
       <MapContainer id="map"/>
       <ResultList id="result-list">
         {Places.map((item, i) => (
-            <ResultItem key={i} style={{ marginTop: '20px' }} onClick={() => console.log('click')}>
+            <ResultItem key={i} style={{ marginTop: '20px' }} onClick={() => {
+                                                                                addPlace(item.place_name);
+                                                                                addLatitude(item.y);
+                                                                                addLongitude(item.x);
+                                                                                close();
+                                                                              }}>
                 <span style={{color: '#4F8A8B', fontSize: '1.2rem'}}> {i + 1}</span>
                 <div style={{fontSize: '1.2rem', fontWeight: '500', marginBottom: '1rem'}}>{item.place_name}</div>
                 {item.road_address_name ? (
                     <div>
                         <span>{item.road_address_name}</span>
-                        <span>{item.address_name}</span>
+                        <div>{item.address_name}</div>
+                        <div>위도: {item.y}</div>
+                        <div>경도: {item.x}</div>
                     </div> ) : (
                     <div>{item.address_name}</div>
                 )}
@@ -128,7 +144,7 @@ const Map = ({ searchPlace }) => {
         ))}
         <Pagination id="pagination" last={10}></Pagination>
       </ResultList>
-    </div>
+    </Container>
   )
 }
 
