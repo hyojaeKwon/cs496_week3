@@ -29,8 +29,7 @@ function App() {
         <Route path="/search" exact={true} component={SearchPost}/>
         <Route path="/search/post/:area" component={AreaPost}/>
         <Route path="/make/plan" component={MakePlan}/>
-    </div>
-    
+    </div>   
   );
 }
 
