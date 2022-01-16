@@ -1,5 +1,4 @@
 import React, {useState}from 'react';
-import './modal.css';
 import Map from './kakaomap';
 import styled from 'styled-components';
 

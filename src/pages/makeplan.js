@@ -1,5 +1,5 @@
 import React from 'react'
-import Plan from '../component/plan'
+import Plan from '../component/plan/plan'
 
 function MakePlan(){
   return(

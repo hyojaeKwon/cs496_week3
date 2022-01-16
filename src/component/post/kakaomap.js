@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
+import './mapmodal.css';
 
 const ResultItem = styled.div`
     display: block;
