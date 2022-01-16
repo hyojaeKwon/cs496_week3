@@ -14,17 +14,23 @@ export default class MakePlans extends Component {
 
   openModal = () => {
     this.setState({ modalOpen: true })
+    console.log("클릭")
   }
-  closeModal = () => {
+  closeModal = (items) => {
     this.setState({ modalOpen: false })
-    this.BtnClick();
+    var obj = new Object();
+    // obj[]
+    console.log(items)
+    if(items !== undefined){
+      this.BtnClick();
+    }
   }
   BtnClick = () => {
     console.log("Clicked")
     import('./plancard').then(({PlanCard}) => {
       const {plans} = this.state;
       const props ={};
-      props['month']= 7;
+      props['month']= 7;  
       props['day'] = 17;
       props['type'] = "식사";
       const position = plans.length +1;
@@ -45,12 +51,7 @@ export default class MakePlans extends Component {
         <div style={{'display':'flex'}}>
           {plans}
         </div>
-        <PlanModal open={ this.state.modalOpen } close={ this.closeModal } title="Create a chat room">
-                    {/* // Modal.js <main> { this.props.children } </main>에 내용이 입력된다.
-                    리액트 클래스형 모달 팝업창입니다.
-                    쉽게 만들 수 있어요.
-                    같이 만들어봐요! */}
-        </PlanModal>
+        <PlanModal open={ this.state.modalOpen } close={ this.closeModal } title="Create a chat room"></PlanModal>
       </div>
     );
   }
