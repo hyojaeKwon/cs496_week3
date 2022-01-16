@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import './planModal.css';
 
 const PlanModal = (props) => {
@@ -17,7 +18,9 @@ const PlanModal = (props) => {
               &times;{' '}
             </button>
           </header>
-          <main>{props.children}</main>
+          <main>
+
+          </main>
           <footer>
             <button className="close" onClick={close}>
               {' '}
@@ -29,5 +32,7 @@ const PlanModal = (props) => {
     </div>
   );
 };
-
+const InfoWrapper = styled.div`
+  margin: 10px;
+`;
 export default PlanModal;
