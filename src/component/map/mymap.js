@@ -39,6 +39,7 @@ const PopupWrapper = styled.div`
     font-weight: 500;
     opacity: 0.9;
 	display: inline-block;
+	/* position: relative; */
 `;
 
 const Content = styled.div`
@@ -46,6 +47,12 @@ const Content = styled.div`
     padding-top: 1rem;
     display: block;
 `
+const Grid = styled.div`
+	position: absolute;
+	left: 30px;
+	bottom: 20px;
+	font-size: 1.5rem;
+`;
 
 const Popup = ({area}) => {
     const url = '/post/최윤지/'+area;
@@ -63,11 +70,14 @@ const Popup = ({area}) => {
                 </div>
             </div>
             <div style={{width: '80%', height: '2rem', border: '1px solid white', borderRadius: '1rem', marginTop: '2rem', marginLeft: '10%', backgroundColor: 'white'}}></div>
-            <div style={{display: 'inline-block', fontSize: '1.5rem', marginTop: '3rem', marginLeft: '2rem'}}>
-                    RETRAVEL
+            <Grid>
+						RETRAVEL
                     <Button to={url}>떠나보기</Button>
+						</Grid>
+						
+						{/* <div style={{display: 'inline-block', fontSize: '1.5rem', marginTop: '3rem', marginLeft: '2rem'}}>
             </div>
-    
+     */}
             
         </PopupWrapper>
             )

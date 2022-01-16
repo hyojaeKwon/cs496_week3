@@ -17,22 +17,13 @@ const SetComponent = styled.div`
 
 
 // function Main(){
-//     const [modalOpen, setModalOpen] = useState(false);
 
-//     const openModal = () => {
-//         setModalOpen(true);
-//     }
-
-//     const closeModal = () => {
-//         setModalOpen(false);
-//     }
 //     return(
 //         <React.Fragment>
-//             <button onClick={openModal}>
+//             {/* <button onClick={openModal}>
 //                 모달 팝업
-//             </button>
+//             </button> */}
 //             <Modal open={modalOpen} close={closeModal} header="Modal heading">
-                
 //             </Modal>
 //         </React.Fragment>
 //     );

@@ -12,7 +12,7 @@ import Upload from './pages/upload';
 import Post from './pages/post';
 import SearchPost from './pages/searchmap';
 import AreaPost from './pages/areapost';
-
+import MakePlan from './pages/makeplan';
 function App() {
   return (
     <div>
@@ -28,6 +28,7 @@ function App() {
         <Route path="/posting/:username/:area/detail" exact={true} component={Post}/>
         <Route path="/search" exact={true} component={SearchPost}/>
         <Route path="/search/post/:area" component={AreaPost}/>
+        <Route path="/make/plan" component={MakePlan}/>
     </div>
     
   );
