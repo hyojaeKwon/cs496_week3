@@ -53,7 +53,7 @@ const ImagePrview = styled.img`
 `;
 
 const PostButton = styled(Link)`
-    width: 170px;
+    width: 150px;
     display: block;
     margin-left: 405px;
     margin-top: 5rem;
@@ -61,7 +61,7 @@ const PostButton = styled(Link)`
     text-decoration: none;
     border: 2.5px solid #4F8A8B;
     opacity: 70%;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 350;
     color: #4F8A8B;
     text-align: center;

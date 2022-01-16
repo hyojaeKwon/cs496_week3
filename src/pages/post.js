@@ -15,7 +15,6 @@ const Post = ({ location, match }) => {
             <Header/>
             <Navigation/>
             <Posting username={username} area={area} files={files}/>
-            <DatePicker/>
         </div>
     )
 }
