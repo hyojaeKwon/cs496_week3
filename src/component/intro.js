@@ -20,13 +20,14 @@ const Title = styled.div`
     font-family: RaleWay;
     font-size: 3rem;
     font-weight: 700;
+    font-family: SCDream5;
     color: #5A5A5A;
 `; 
 
 const Content = styled.div`
     margin-top: 3rem;
     color: #5A5A5A;
-    font-family: Goyang;
+    font-family: SCDream5;
     font-size: 1.3rem;
 `;
 const Image = styled.img`

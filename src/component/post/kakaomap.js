@@ -6,6 +6,7 @@ const ResultItem = styled.div`
     display: block;
     margin-top: 10px;
     font-size: 1rem;
+    font-family: SCDream4;
     padding-bottom: 1rem;
     border-bottom: 1.5px dashed #5c5c5c;
     color: #5c5c5c;
@@ -29,6 +30,7 @@ const ResultList = styled.div`
 const MapContainer = styled.div`
     width: 1000px;
     height: 600px;
+    padding-right: 300px;
     // display: absolute;
     // left: 0;
 
@@ -123,7 +125,7 @@ const Map = ({ searchPlace, addPlace, addLatitude, addLongitude, close }) => {
       <MapContainer id="map"/>
       <ResultList id="result-list">
         {Places.map((item, i) => (
-            <ResultItem key={i} style={{ marginTop: '20px' }} onClick={() => {  
+            <ResultItem key={i} style={{ marginTop: '20px', textAlign: 'center' }} onClick={() => {  
                                                                                 console.log(item.address_name);
                                                                                 addPlace(item.place_name);
                                                                                 addLatitude(item.y);
@@ -136,8 +138,6 @@ const Map = ({ searchPlace, addPlace, addLatitude, addLongitude, close }) => {
                     <div>
                         <span>{item.road_address_name}</span>
                         <div>{item.address_name}</div>
-                        <div>위도: {item.y}</div>
-                        <div>경도: {item.x}</div>
                     </div> ) : (
                     <div>{item.address_name}</div>
                 )}

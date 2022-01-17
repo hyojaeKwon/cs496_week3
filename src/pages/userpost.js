@@ -8,7 +8,8 @@ import styled from 'styled-components';
 import PostWrapper from '../component/post/postwrapper';
 
 const Title = styled.div`
-    font-size: 2.5rem;
+    font-size: 2.3rem;
+    font-family: SCDream5;
     color: #686D76;
     font-weight: 400;
     margin-top: 3rem;
@@ -47,11 +48,12 @@ const Like = styled.div`
 const AddButton = styled(Link)`
     font-size: 1.2rem;
     font-weight: 500;
+    font-family: SCDream4;
     background-color: #4F8A8B;
     display: inline-block;
     color: white;
     margin-left: 1000px;
-    padding: 0.3rem;
+    padding: 0.5rem;
     border-radius: 0.2rem;
     text-decoration: none;
 `

@@ -25,7 +25,8 @@ const MainText = styled.span`
   text-align: left;
   font-size: 64px;
   line-height: 75px;
-  font-weight: 600;
+  font-weight: 400;
+  font-family: SCDream5;
   margin-left: 80px;
   color: #5c5c5c;
 `;
@@ -39,6 +40,7 @@ const MainButton = styled.a`
   margin-bottom: 20px;
   border-radius: 5px;
   font-size: 16px;
+  font-family: SCDream5;
   text-align: center;
   vertical-align: middle;
 `;

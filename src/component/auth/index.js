@@ -8,9 +8,11 @@ const Wrapper = styled.div`
     margin-top: 10rem;
     margin-left: 35%;
     color: #686D76;
+    font-family: SCDream4;
 `;
 
 const Input = styled.input`
+    font-family: SCDream4;
     display: block;
     width: 18rem;
     border: none;
@@ -33,6 +35,7 @@ const SubmitButton = styled.button`
     font-size: 1.1rem;
     background-color: #4F8A8B;
     color: white;
+    font-family: SCDream4;
 `;
 
 const Auth = ({ type, form, onChange, onSubmit}) => {
@@ -44,8 +47,8 @@ const Auth = ({ type, form, onChange, onSubmit}) => {
                     <h1>회원가입</h1>
                     <Input name="id" placeholder="아이디" onChange={onChange} value={form.id}/>
                     <Input name="name" placeholder="이름" onChange={onChange} value={form.name}/>
-                    <Input name="password" placeholder="비밀번호" onChange={onChange} value={form.password}/>
-                    <Input name="passwordConfirm" placeholder="비밀번호 확인" onChange={onChange} value={form.passwordConfirm}/>
+                    <Input name="password" placeholder="비밀번호" type="password" onChange={onChange} value={form.password}/>
+                    <Input name="passwordConfirm" placeholder="비밀번호 확인" type="password" onChange={onChange} value={form.passwordConfirm}/>
                     <SubmitButton type="submit">회원가입</SubmitButton>
                 </form>
             )}
@@ -53,7 +56,7 @@ const Auth = ({ type, form, onChange, onSubmit}) => {
                 <form onSubmit={onSubmit}>
                     <h1>로그인</h1>
                     <Input name="id" placeholder="아이디" onChange={onChange} value={form.id}/>
-                    <Input name="password" placeholder="비밀번호" onChange={onChange} value={form.password}/>
+                    <Input name="password" placeholder="비밀번호" type="password" onChange={onChange} value={form.password}/>
                     <SubmitButton>로그인</SubmitButton>
                 </form>
             )}

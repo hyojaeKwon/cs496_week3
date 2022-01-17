@@ -23,6 +23,7 @@ const StyledPath = styled.path`
 const Button = styled(Link)`
     margin-left: 3rem;
     font-size: 1.rem;
+	font-family: SCDream4;
     padding: 0.3rem;
     text-decoration: none;
     color: white;
@@ -39,6 +40,7 @@ const PopupWrapper = styled.div`
     color: white;
     font-weight: 500;
 	display: inline-block;
+	font-family: SCDream4;
 	/* position: relative; */
 `;
 
@@ -132,7 +134,7 @@ const MyMap = () => {
 		if(traveled){
 			for(let i = 0; i < traveled.length; i++){
 				if(id === traveled[i]){
-					fill='#7fdadb';
+					fill='#a4edcb';
 				}
 				
 			}

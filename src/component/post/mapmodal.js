@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const Input = styled.input`
     width: 100px;
+    font-family: SCDream4;
     :focus { outline: none; };
 `
 
@@ -16,7 +17,7 @@ const MapModal = (props) => {
     <div className={open ? 'openModal modal' : 'modal'} style={{overlfow: 'scroll'}}>
       {open ? (
         <section>
-          <header>
+          <header style={{padding: '0.7rem', textAlign: 'center'}}>
             {header}
             <button className="close" onClick={close}>
               {' '}
@@ -29,7 +30,7 @@ const MapModal = (props) => {
                                     console.log(e.target.keyword.value);
                                     setSearchPlace(e.target.keyword.value);}}>
                     키워드 : <Input type="text" name="keyword" size="15" /> 
-                    <button type="submit" style={{marginLeft: '10px', marginBottom: '20px', backgroundColor: '#4F8A8B'}}>검색하기</button>
+                    <button type="submit" style={{marginLeft: '10px', marginBottom: '20px', backgroundColor: '#4F8A8B', fontFamily: 'SCDream4'}}>검색하기</button>
                     <Map searchPlace={searchPlace} addPlace={addPlace} addLatitude={addLatitude} addLongitude={addLongitude} close={close}/>
             </form>
           </footer>
