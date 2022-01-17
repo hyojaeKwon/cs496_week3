@@ -7,6 +7,7 @@ import DatePicker from 'react-datepicker';
 
 const Post = ({ location, match }) => {
     const files = location.state.files;
+
     const { username, area } = match.params;
 
     console.log(files);

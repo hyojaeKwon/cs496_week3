@@ -33,9 +33,11 @@ const ModalContainer = styled.div`
   background-color: #FFF;
 `;
 
-const ImgContainer = styled.div`
-  width: 100%;
-  height: auto;
+const ImgContainer = styled.img`
+  max-width: 100%;
+  height: 700px;
+  display: block;
+  margin: 0 auto;
   background-color: #ccc;
   @media (max-width: 1000px){
     width : 100%;
@@ -108,7 +110,7 @@ const Modal = (props) => {
   }
 
   // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
-  const { open, close, name, where, author, place,number } = props;
+  const { open, close, author, place, city, content, likes, image} = props;
   return (
     // 모달이 열릴때 openModal 클래스가 생성된다.
     <div className={open ? 'openModal modal' : 'modal'}>
@@ -118,38 +120,38 @@ const Modal = (props) => {
           <Main>
             <ModalContainer>
               <Back src='../../img/back.png' className="close" onClick={close}></Back>
-              <ImgContainer/>
+              <ImgContainer src={image}/>
               <DescContainer>
                   <Author>
-                    {author} 최윤지
+                    {author}
                     <AuthorSpan>
                       님의 포스트 입니다.
                     </AuthorSpan>
                   </Author>
                 <Place>
-                    {place}Square 81
+                    {place}
                 </Place>
                 <ToWhere>
-                    {where}경기도 창원시
+                    {city}
                 </ToWhere>
                 <Text>
-                  안녕하세요, 안녕하세요, 안녕하세요, 안녕하세요, 안녕하세요, 안녕하세요, 안녕하세요, 안녕하세요, 안녕하세요, 안녕하세요, 안녕하세요, 
+                  {content}
                 </Text>
                 <div style={{'display':'flex'}}>
                   <Like>좋아요</Like>
                   <span style={{'margin-top':'14px'}}>
-                    {number} 28개
+                    {likes}개
                   </span>
                 </div>
               </DescContainer>
             </ModalContainer>
           </Main>
-          {/* <Footer>
+          { <Footer>
             <FooterBtn className="close" onClick={close}>
               {' '}
               close{' '}
             </FooterBtn>
-          </Footer> */}
+          </Footer> }
         </Section>
       ) : null}
     </div>

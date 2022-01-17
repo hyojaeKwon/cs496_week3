@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link ,useHistory } from 'react-router-dom';
 import logo from '../../img/logo.png';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const Logo = styled(Link)`
     display: inline-block;
@@ -26,13 +27,38 @@ const AuthButton = styled(Link)`
 `
 
 const Header = () => {
+    const history = useHistory();
+    const Logout = () =>{
+        const headers = {
+            "Token": localStorage.getItem('login-token'),
+        };
+
+        axios.post('http://192.249.18.146:443/api/auth/logout', {}, {
+            headers: {"Authorization": "Token " + localStorage.getItem('login-token'),}
+        })
+        .then(function (response) {
+            console.log('로그아웃 성공');
+            localStorage.removeItem('login-token');
+            history.push('/');
+        })
+        .catch(function (error) {
+            console.log('에러 발생')
+        })
+
+    }
     return(
         <div>
             <Logo to='/'>
                 <img src={logo} width='200' height='60' alt='logo'/>
             </Logo>
-            <AuthButton to='/signin'>로그인</AuthButton>
-            <AuthButton to='/signup'>회원가입</AuthButton>
+            { localStorage.getItem('login-token') !== null ? 
+                <AuthButton to='/' onClick={Logout}>로그아웃</AuthButton> :
+                <span> 
+                    <AuthButton to='/signin'>로그인</AuthButton>
+                    <AuthButton to='/signup'>회원가입</AuthButton>
+                </span>
+                }
+
         </div>
     )
 }

@@ -1,11 +1,11 @@
-import React,{useState} from 'react';
+import React,{ useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import Header from '../component/common/header';
 import Navigation from '../component/common/navigation';
 import Footer from '../component/common/footer';
 import styled from 'styled-components';
-import travel from '../img/travel.jpeg';
-import Modal from '../component/Modals/Modal'
+import PostWrapper from '../component/post/postwrapper';
 
 const Title = styled.div`
     font-size: 2.5rem;
@@ -23,12 +23,7 @@ const PostPreview = styled.div`
     margin-left: 1rem;
     background-color: #cfcfcf;
     border-radius: 1rem;
-    background-image: url(${travel});
-`
-const PostWrapper = styled.div`
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-bottom: 10%;
+    background-image: url(${props => props.image});
 `
 
 const AreaName = styled.div`
@@ -64,21 +59,25 @@ const AddButton = styled(Link)`
 const UserPost = ({ match }) => {
     const user = match.params.username;
     const area = match.params.area;
-
+    const [posts, setPosts] = useState([]);
     const postingUrl = '/posting/' + user + '/' + area;
 
-    const [modalOpen, setModalOpen] = useState(false);
+    useEffect(() => {
+        axios.get('http://192.249.18.146:443/api/posts/get-user-post/'+ area, {
+        headers: {"Authorization": "Token " + localStorage.getItem('login-token'),}
+        })
+        .then(function (response) {
+            console.log('포스팅 가져오기 성공');
+            const data = response.data;
+            console.log(data);
+            setPosts([...posts, ...data]);
+            console.log(posts);
+        })
+        .catch(function (error) {
+            console.log('에러 발생')
+        })
+    }, [])
 
-    const openModal = () => {
-        console.log('clicked');
-        setModalOpen(true);
-        
-    }
-
-    const closeModal = () => {
-        setModalOpen(false);
-    }
-    
     return(
         <div>
             <Header/>
@@ -87,42 +86,9 @@ const UserPost = ({ match }) => {
                 <Title>RETRAVEL {area}</Title>
                 <AddButton to={postingUrl}>포스팅하기</AddButton>
             </div>
-            <PostWrapper>
-                <PostPreview image='../img/travel.jpeg' onClick={openModal}>
-                    <AreaName>{area}</AreaName>
-                    <Like>♡10</Like>
-                </PostPreview>
-                <PostPreview image='../img/travel.jpeg' onClick={openModal}>
-                    <AreaName>{area}</AreaName>
-                    <Like>♡10</Like>
-                </PostPreview>
-                <PostPreview image='../img/travel.jpeg' onClick={openModal}>
-                    <AreaName>{area}</AreaName>
-                    <Like>♡10</Like>
-                </PostPreview>
-                <PostPreview image='../img/travel.jpeg' onClick={openModal}>
-                    <AreaName>{area}</AreaName>
-                    <Like>♡10</Like>
-                </PostPreview>
-                <PostPreview image='../img/travel.jpeg' onClick={openModal}>
-                    <AreaName>{area}</AreaName>
-                    <Like>♡10</Like>
-                </PostPreview>
-                <PostPreview image='../img/travel.jpeg' onClick={openModal}>
-                    <AreaName>{area}</AreaName>
-                    <Like>♡10</Like>
-                </PostPreview>
-                <PostPreview image='../img/travel.jpeg' onClick={openModal}>
-                    <AreaName>{area}</AreaName>
-                    <Like>♡10</Like>
-                </PostPreview>
-                <PostPreview image='../img/travel.jpeg' onClick={openModal}>
-                    <AreaName>{area}</AreaName>
-                    <Like>♡10</Like>
-                </PostPreview>
-            </PostWrapper>
-            <Modal open={modalOpen} close={closeModal} header="Modal heading">
-            </Modal>
+            <div style={{marginLeft: '10%'}}>
+                <PostWrapper posts={posts}></PostWrapper>
+            </div>
             <Footer/>
         </div>
     )

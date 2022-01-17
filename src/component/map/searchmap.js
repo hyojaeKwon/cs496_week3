@@ -28,7 +28,7 @@ const Button = styled(Link)`
 `
 
 const PopupWrapper = styled.div`
-    background-color: #A0DBDB;
+    background-color: #96BAFF;
 	margin-left: 15rem;
 	margin-top: 10rem;
 	position: absolute;

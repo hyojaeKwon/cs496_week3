@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import areaname from '../../img/areaname.png';
@@ -28,7 +29,7 @@ const Button = styled(Link)`
 `
 
 const PopupWrapper = styled.div`
-    background-color: #A0DBDB;
+    background-color: #96BAFF;
 	margin-left: 15rem;
 	margin-top: 10rem;
 	position: absolute;
@@ -37,7 +38,6 @@ const PopupWrapper = styled.div`
     border-radius: 1.5rem;
     color: white;
     font-weight: 500;
-    opacity: 0.9;
 	display: inline-block;
 	/* position: relative; */
 `;
@@ -101,11 +101,43 @@ const AreaName = styled.img`
 const MyMap = () => {
     const [popup, handlePopup] = useState(false);
     const [area, setArea] = useState('');
+	const [traveled, setTraveled] = useState();
+	const [isLoading, setIsLoading] = useState(true);
+
+	useEffect(() => {
+		axios.get('http://192.249.18.146:443/api/posts/get-traveld-cities', {
+            headers: {"Authorization": "Token " + localStorage.getItem('login-token'),}
+        })
+		.then(function (response) {
+            console.log('여행한 도시 가져오기 성공');
+            const data = response.data;
+            console.log(data);
+            setTraveled(data);
+            console.log(traveled);
+			setIsLoading(false);
+        })
+        .catch(function (error) {
+            console.log('에러 발생')
+        })
+
+	}, [])
+
     const close = () => {
         handlePopup(false);
     }
 
     const Path = ({id, fill, stroke, d}) => {
+		const [isVisited, setIsVisited] = useState(false);
+		console.log('로딩 끝');
+		if(traveled){
+			for(let i = 0; i < traveled.length; i++){
+				if(id === traveled[i]){
+					fill='#7fdadb';
+				}
+				
+			}
+		}
+	
         return(
             <StyledPath onClick={() => {handlePopup(true);
                                         setArea(id);}}
