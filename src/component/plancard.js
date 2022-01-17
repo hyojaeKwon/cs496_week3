@@ -64,7 +64,6 @@ const WhereText = styled.span`
 
 
 export function PlanCard(props){
-  console.log(props)
   const prop =props['props']
   // const {day,type,location,where} = props;
   const month = prop['month'];
@@ -98,4 +97,4 @@ export function PlanCard(props){
   );
 };
 
-// export default PlanCard;
+export default PlanCard;

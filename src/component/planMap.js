@@ -38,7 +38,7 @@ const Pagination = styled.div`
 `
 const { kakao } = window
 
-const PlanMap = ({ searchPlace, addPlace, addLatitude, addLongitude, close }) => {
+const PlanMap = ({ date, searchPlace, addPlace, addLatitude, addLongitude, close }) => {
 
   // 검색결과 배열에 담아줌
   const [Places, setPlaces] = useState([])
@@ -129,7 +129,9 @@ const PlanMap = ({ searchPlace, addPlace, addLatitude, addLongitude, close }) =>
               obj['place_name'] = item.place_name;
               obj['x'] = item.x;
               obj['y'] = item.y;
-              close(obj);
+              console.log(date);
+              console.log('now date')
+              close(obj,date);
               // return obj;
                                                                                 // console.log(item.address_name);
                                                                                 // addPlace(item.place_name);

@@ -24,34 +24,35 @@ const PlanModal = (props) => {
   const { open, close, header, addPlace, addLatitude, addLongitude } = props;
   const [searchPlace, setSearchPlace] = useState('');
   const [startDate, setStartDate]=useState(new Date());
-  // const { date } = this.state;
+  const { date } = useState(new Date());
 
   return (
     // 모달이 열릴때 openModal 클래스가 생성된다.
     <div className={open ? 'openModal modal' : 'modal'}>
       {open ? (
-        <section>
-          <header>
+        <Section>
+          <Header>
             {header}
-            <button className="close" onClick={close}>
+            <HeaderBtn className="close" onClick={close}>
               {' '}
               &times;{' '}
-            </button>
-          </header>
-          <main>
+            </HeaderBtn>
+          </Header>
+          {/* <main>
             {props.children}
-          </main>
-          <footer>
+          </main> */}
+          <Footer>
           <form onSubmit={(e) => {e.preventDefault();
                                     console.log(e.target.keyword.value);
                                     setSearchPlace(e.target.keyword.value);}}>
-                    <div style={{'display':'flex','justifyContent':'space-between'}}>
+                    <div style={{'display':'flex','flexDirection':'column','alignItems':'flex-end','justifyContent':'space-between'}}>
                       <div style={{'display':'flex','alignItems':'center'}}>
                         <div style={{ 'marginRight': '10px'}}>여행 날자 : </div> 
                         <DatePicker 
                           style={{'paddingLeft': '10px'}} 
                           selected={startDate} 
-                          onChange={date => setStartDate(date)}/>
+                          onChange={date => setStartDate(date)}
+                          startDate={date}/>
                       </div>
                       <div style={{'display':'flex','alignItems':'center'}}>
                         <div style={{ 'marginRight': '10px'}}>키워드 : </div>
@@ -59,15 +60,86 @@ const PlanModal = (props) => {
                         <button type="submit" style={{marginLeft: '10px', backgroundColor: '#4F8A8B'}}>검색하기</button>
                       </div>
                     </div>
-                    
-                    <PlanMap searchPlace={searchPlace} addPlace={addPlace} addLatitude={addLatitude} addLongitude={addLongitude} close={close}/>
+                    <PlanMap date={Date(startDate)} searchPlace={searchPlace} addPlace={addPlace} addLatitude={addLatitude} addLongitude={addLongitude} close={close}/>
             </form>
-          </footer>
-        </section>
+          </Footer>
+        </Section>
       ) : null}
     </div>
   );
 };
+
+
+// .modal button {
+//   outline: none;
+//   cursor: pointer;
+//   border: 0;
+// }
+// .modal > section {
+//   width: 90%;
+//   max-width: 1060px;
+//   margin: 0 auto;
+//   border-radius: 0.3rem;
+//   background-color: #fff;
+//   /* 팝업이 열릴때 스르륵 열리는 효과 */
+//   animation: modal-show 0.3s;
+//   overflow: hidden;
+// }
+
+const Section = styled.div`
+  width: 90%;
+  max-width: 1060px;
+  margin: 0 auto;
+  border-radius: 0.3rem;
+  background-color: #fff;
+  /* 팝업이 열릴때 스르륵 열리는 효과 */
+  animation: modal-show 0.3s;
+  overflow: hidden;
+`
+// .modal > section > header {
+//   position: relative;
+//   padding: 16px 64px 16px 16px;
+//   background-color: #f1f1f1;
+//   font-weight: 700;
+// }
+
+const Header = styled.div`
+  position: relative;
+  padding: 16px 64px 16px 16px;
+  background-color: #f1f1f1;
+  font-weight: 700;
+`
+
+const HeaderBtn = styled.button`
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  font-size: 21px;
+  font-weight: 700;
+  text-align: center;
+  color: #999;
+  background-color: transparent;
+`
+// .modal > section > main {
+//   padding: 16px;
+//   border-bottom: 1px solid #dee2e6;
+//   border-top: 1px solid #dee2e6;
+//   display: flex;
+// }
+const Footer = styled.div`
+  padding: 12px 16px;
+  text-align: right;
+`
+const FooterButton = styled.button`
+  padding: 6px 12px;
+  color: #fff;
+  background-color: #6c757d;
+  border-radius: 5px;
+  font-size: 13px;
+`
+
+
 const InfoWrapper = styled.div`
   margin: 10px;
 `;
