@@ -106,6 +106,16 @@ const PostButton = styled(Link)`
     color: #4F8A8B;
     text-align: center;
     font-weight: 500;
+`;
+
+const Images = styled.img`
+    display:inline-block;
+    width: 100px;
+    height: 100px;
+`;
+
+const ImageContainer = styled.div`
+    display: block;
 `
 
 const Posting = ({ username, area, files}) => {
@@ -150,6 +160,7 @@ const Posting = ({ username, area, files}) => {
             <div style={{display: 'inline-block', fontSize: '1.3rem', color: '#9e9e9e'}}>새 게시물 올리기</div>
             <div style={{width: '1000px', borderBottom: '2px solid #e3e3e3', marginTop: '1rem'}}/>
             <FirstImg src={files[0]}></FirstImg>
+            
             <Content textAlignVertical='top' placeholder='내용 입력하기' value={content} onChange={(e) => setContent(e.target.value)}/>
             <PlaceInput onClick={openModal}>
                 <div style={{display: 'inline-block'}}>{place || '위치 추가하기'}</div>
@@ -157,6 +168,9 @@ const Posting = ({ username, area, files}) => {
             </PlaceInput>
             <CostInput type='number' min='0' placeholder='사용경비 추가하기' value={cost} onChange={(e) => setCost(e.target.value)}></CostInput>
             <DateInput type='text' placeholder='여행날짜 추가하기' value={traveldate} onChange={(e) => setTraveldate(e.target.value)}></DateInput>
+            <ImageContainer>
+            { files.length > 1 ? files.map((file) => <Images src={file}/>) : <div></div>}
+            </ImageContainer>
             <MapModal open={modalOpen} close={closeModal} header="장소 추가하기" addPlace={addPlace} addLatitude={addLatitude} addLongitude={addLongitude}></MapModal>
             <PostButton to={url}>포스트 공유하기</PostButton>
         </Wrapper>

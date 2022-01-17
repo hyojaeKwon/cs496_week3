@@ -1,14 +1,16 @@
 import React from 'react';
 import Header from '../component/common/header';
 import Navigation from '../component/common/navigation';
-import KaKaoMap from '../component/post/kakaomap';
+import Footer from '../component/common/footer';
+import RouteMap from '../component/plan/routemap';
 
 const Plan = () => {
     return(
         <div>
             <Header/>
             <Navigation/>
-            <KaKaoMap searchPlace='써브웨이'/>
+            <RouteMap/>
+            <Footer/>
         </div>
     )
 };

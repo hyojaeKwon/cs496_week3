@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Plan from '../component/plan'
 import Header from '../component/common/header';
 import Navigation from '../component/common/navigation';
@@ -7,7 +8,6 @@ function MakePlan(){
     <div>
       <Header/>
       <Navigation/>
-
       <Plan/>
     </div>
   )

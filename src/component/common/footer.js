@@ -4,8 +4,10 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   width : 100%;
+  height: 150px;
   background-color: rgba(234, 234, 234, 0.3);
   border-top: 1px solid #E9ECEF;
+  margin-top: 200px;
 `;
 
 const FooterContainer = styled.div`
