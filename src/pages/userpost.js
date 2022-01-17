@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../component/common/header';
 import Navigation from '../component/common/navigation';
+import Footer from '../component/common/footer';
 import styled from 'styled-components';
 import travel from '../img/travel.jpeg';
 import Modal from '../component/Modals/Modal'
@@ -122,7 +123,7 @@ const UserPost = ({ match }) => {
             </PostWrapper>
             <Modal open={modalOpen} close={closeModal} header="Modal heading">
             </Modal>
-           
+            <Footer/>
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../component/common/header';
 import Navigation from '../component/common/navigation';
+import Footer from '../component/common/footer';
 import SigninForm from '../container/auth/signinform';
 
 const Signin = () => {
@@ -9,6 +10,7 @@ const Signin = () => {
             <Header/>
             <Navigation/>
             <SigninForm/>
+            <Footer/>
         </div>
     )
 };

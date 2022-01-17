@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../component/common/header';
 import Navigation from '../component/common/navigation';
+import Footer from '../component/common/footer';
 import styled from 'styled-components';
 import travel from '../img/travel.jpeg';
 
@@ -91,7 +92,7 @@ const AreaPost = ({ match }) => {
                     <Like>♡10</Like>
                 </PostPreview>
             </PostWrapper>
-           
+            <Footer/>
         </div>
     )
 }

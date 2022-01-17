@@ -24,7 +24,8 @@ const Nav = styled(Link)`
         font-weight: 800;
         color: #4F8A8B;
     }
-`
+`;
+
 
 const Navigation = () => {
     return(

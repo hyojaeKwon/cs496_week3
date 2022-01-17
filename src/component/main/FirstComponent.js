@@ -1,11 +1,14 @@
 import React from 'react';
 import styled from "styled-components";
+import background from '../../img/main-back.jpg';
 
 //main페이지에 들어갈 첫번째 네모 css 파일 제작
 const MainSquare = styled.div`
   width : 1060px;
   height : 450px;
-  background-image : url("/img/main-back.jpg");
+  margin-top: 50px;
+  background-image : url(${background});
+  box-shadow: 4px 4px 4px rgba(171, 171, 171);
   display : flex;
   align-items : center;
 `;
@@ -23,7 +26,8 @@ const MainText = styled.span`
   font-size: 64px;
   line-height: 75px;
   font-weight: 600;
-  margin-left: 20px;
+  margin-left: 80px;
+  color: #5c5c5c;
 `;
 
 //첫번째 네모에 들어갈 버튼 css
