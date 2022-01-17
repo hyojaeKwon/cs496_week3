@@ -124,6 +124,7 @@ const UserPost = ({ match }) => {
             <Modal open={modalOpen} close={closeModal} header="Modal heading">
             </Modal>
             <Footer/>
+
         </div>
     )
 }

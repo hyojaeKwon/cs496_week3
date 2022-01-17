@@ -30,7 +30,6 @@ function App() {
         <Route path="/search/post/:area" component={AreaPost}/>
         <Route path="/make/plan" component={MakePlan}/>
     </div>
-    
   );
 }
 
