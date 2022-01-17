@@ -18,18 +18,21 @@ export default class MakePlans extends Component {
     this.setState({ modalOpen: true })
     console.log("클릭")
   }
-  closeModal = (items,date) => {
+  closeModal = (items,date,type) => {
+    console.log("type :" + type)
     this.setState({ modalOpen: false })
     if(items !== undefined){
       var obj = new Object();
       const dateTempArray = date.split(" ");
-      // console.log(dateTempArray)
-      // console.log(date)   
+
       obj['month'] = dateTempArray[1];
       obj['day'] = dateTempArray[2];
       obj['location'] = items['place_name'];
       obj['where'] = items['address_name'];
-      obj['type'] = "식사";
+      obj['x'] = items['x']
+      obj['y'] = items['y']
+      obj['type'] = type;
+      // console.log(type)
       this.BtnClick(obj);
     }
   }
@@ -41,10 +44,10 @@ export default class MakePlans extends Component {
       const position = plans.length +1;
       // this.planInfo[position] = props;
       // console.log(this.planInfo)
-      console.log(props)
+      // console.log(props)
       const newPlans = <PlanCard key={position} props={props}/>
       // this.setState({planInfo:[props]});
-      console.log("현재 정보")
+      // console.log(plans)
       this.setState({plans:[...plans,newPlans],planInfo:[...planInfo,props]});
     })
   }
@@ -65,14 +68,17 @@ export default class MakePlans extends Component {
               </SemiWhere>
             </div>
             <div>
-              <button onClick={this.openModal}>할 일 추가</button>
+              <AddBtn onClick={this.openModal}>할 일 추가</AddBtn>
             </div>
           </TitleContainer>
+          <PlanContainer>
+            {plans}
+          </PlanContainer>
+          
           <div style={{'display':'flex'}}>
-          {plans}
           </div>
           <PlanModal open={ this.state.modalOpen } close={ this.closeModal } title="Create a chat room"></PlanModal>
-     
+          
         </WrapperInner>
       </Wrapper>
     );
@@ -94,7 +100,7 @@ const WrapperInner = styled.div`
 `;
 
 const TitleContainer = styled.div`
-  margin-top: 20px;
+  margin-top: 40px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -104,16 +110,34 @@ const TitleContainer = styled.div`
 const Where = styled.span`
   font-size: 36px;
   line-height: 42px;
+  margin-bottom: 10px;
 `
 const SemiWhere = styled.span`
   font-size: 28px;
   line-height: 33px;
   color: #848484;
+  /* padding-top: 10px; */
   margin-left: 10px;
 `;
 const AddBtn = styled.button`
-
+  border: 0.5px solid #848484;
+  width: 122px;
+  height: 40px;
+  background-color: rgba(217, 217, 217, 0);
+  border-radius: 3px;
+  font-size: 13px;
+  line-height: 15px;
+  text-align: center;
+  &:hover{
+    color: #4F8A8B;
+    border: 0.5px solid #4F8A8B;
+  }
 `;
+
+const PlanContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+`
 // function Plan(){
 
 // }

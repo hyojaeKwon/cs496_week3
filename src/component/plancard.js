@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
- 
+import PlanCardMap from "./planCardMap";
+
 const Wrapper = styled.div`
   width : 300px;
   height : 373px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   border-radius: 20px;
   background-color: rgba(241, 241, 241, 0.79);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -21,7 +24,7 @@ const InnerWrapper = styled.div`
 const PicContainer = styled.div`
   height: 200px;
   margin-top: 5px;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
 `;
 
 const DayContainer = styled.div`
@@ -71,11 +74,21 @@ export function PlanCard(props){
   const location = prop['location'];
   const where = prop['where'];
   const type = prop['type'];
+  const x = prop['x']
+  const y = prop['y']
+  var mapObj = new Object();
+  mapObj['x'] = prop['x'];
+  mapObj['y'] = prop['y'];
+  // console.log(mapObj)
   // console.log(month)
   return (
     <Wrapper>
       <InnerWrapper>
-        <PicContainer/>
+        <PicContainer>
+          {/* <PlanCardMap
+            props = { mapObj }
+          /> */}
+        </PicContainer>
           <DayContainer>
             <DayText>
             {month}월 {day}일
