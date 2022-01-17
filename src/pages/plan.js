@@ -4,7 +4,9 @@ import Navigation from '../component/common/navigation';
 import Footer from '../component/common/footer';
 import RouteMap from '../component/plan/routemap';
 
-const Plan = () => {
+const Plan = ({location}) => {
+    const files = location.state.files;
+    console.log(files);
     return(
         <div>
             <Header/>

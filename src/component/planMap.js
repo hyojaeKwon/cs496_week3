@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
-import './mapmodal.css';
 
 const ResultItem = styled.div`
     display: block;
@@ -39,7 +38,7 @@ const Pagination = styled.div`
 `
 const { kakao } = window
 
-const Map = ({ searchPlace, addPlace, addLatitude, addLongitude, close }) => {
+const PlanMap = ({ date, type, searchPlace, addPlace, addLatitude, addLongitude, close }) => {
 
   // 검색결과 배열에 담아줌
   const [Places, setPlaces] = useState([])
@@ -123,12 +122,22 @@ const Map = ({ searchPlace, addPlace, addLatitude, addLongitude, close }) => {
       <MapContainer id="map"/>
       <ResultList id="result-list">
         {Places.map((item, i) => (
-            <ResultItem key={i} style={{ marginTop: '20px' }} onClick={() => {  
-                                                                                console.log(item.address_name);
-                                                                                addPlace(item.place_name);
-                                                                                addLatitude(item.y);
-                                                                                addLongitude(item.x);
-                                                                                close();
+            <ResultItem key={i} style={{ marginTop: '20px' }} onClick={() => { 
+              
+              var obj = new Object();
+              obj['address_name'] = item.address_name;
+              obj['place_name'] = item.place_name;
+              obj['x'] = item.x;
+              obj['y'] = item.y;
+              // console.log(item.x + "현재 경도");
+              console.log('now date')
+              close(obj,date,type);
+              // return obj;
+                                                                                // console.log(item.address_name);
+                                                                                // addPlace(item.place_name);
+                                                                                // addLatitude(item.y);
+                                                                                // addLongitude(item.x);
+                                                                                // close();
                                                                               }}>
                 <span style={{color: '#4F8A8B', fontSize: '1.2rem'}}> {i + 1}</span>
                 <div style={{fontSize: '1.2rem', fontWeight: '500', marginBottom: '1rem'}}>{item.place_name}</div>
@@ -150,4 +159,4 @@ const Map = ({ searchPlace, addPlace, addLatitude, addLongitude, close }) => {
   )
 }
 
-export default Map;
+export default PlanMap  ;

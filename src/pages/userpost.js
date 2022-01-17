@@ -90,6 +90,7 @@ const UserPost = ({ match }) => {
                 <PostWrapper posts={posts}></PostWrapper>
             </div>
             <Footer/>
+
         </div>
     )
 }

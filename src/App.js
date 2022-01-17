@@ -32,7 +32,6 @@ function App() {
         <Route path="/posting/:username/:area/detail" exact={true} component={Post}/>
         <Route path="/make/plan" component={MakePlan}/>
     </div>
-    
   );
 }
 
