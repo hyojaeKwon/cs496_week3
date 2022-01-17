@@ -70,25 +70,29 @@ const PostButton = styled(Link)`
 
 
 const UploadImg = ({ username, area}) => {
-    const [files, setFiles] = useState('');
+    const [files, setFiles] = useState([]);
     const imgInput = useRef();
     const postUrl = '/posting/'+ username + '/' + area + '/detail';
     const [imgUrl, setImgUrl] = useState('');
 
     const onLoadFile = e => {
         const currentfiles = e.target.files;
-        setFiles(currentfiles);
         console.log('current files');
         console.log(currentfiles);
         const currentUrl = [...imgUrl];
+        const Files = [...files];
 
         for(let i = 0; i < currentfiles.length; i++){
             const ImageUrl = URL.createObjectURL(currentfiles[i])
             currentUrl.push(ImageUrl);
+            Files.push(currentfiles[i]);
         }
         setImgUrl(currentUrl);
+        setFiles(Files);
         console.log('files');
         console.log(files);
+        console.log('currentUrl');
+        console.log(imgUrl);
     }
 
     const handleClick = () => {
@@ -111,7 +115,7 @@ const UploadImg = ({ username, area}) => {
                         <PostButton to={{
                                     pathname: postUrl,
                                     state: {
-                                        files: imgUrl
+                                        files: files,
                                     }}}>포스트 쓰러가기</PostButton>
                     </PreviewWrapper>        
                 }

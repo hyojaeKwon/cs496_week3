@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Header from '../component/common/header';
 import Navigation from '../component/common/navigation';
 import Footer from '../component/common/footer';
 import styled from 'styled-components';
 import travel from '../img/travel.jpeg';
+import PostWrapper from '../component/post/postwrapper';
 
 const Title = styled.div`
     font-size: 2.5rem;
@@ -22,11 +24,6 @@ const PostPreview = styled.div`
     background-color: #cfcfcf;
     border-radius: 1rem;
     background-image: url(${travel});
-`
-const PostWrapper = styled.div`
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-bottom: 10%;
 `
 
 const AreaName = styled.div`
@@ -50,6 +47,21 @@ const Like = styled.div`
 
 const AreaPost = ({ match }) => {
     const area = match.params.area;
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://192.249.18.146:443/api/posts/get-city-posts/'+ area)
+        .then(function (response) {
+            console.log('포스팅 가져오기 성공');
+            const data = response.data;
+            console.log(data);
+            setPosts([...posts, ...data]);
+            console.log(posts);
+        })
+        .catch(function (error) {
+            console.log('에러 발생')
+        })
+    }, []);
 
     return(
         <div>
@@ -58,40 +70,9 @@ const AreaPost = ({ match }) => {
             <div styled={{display: 'inline-block'}}>
                 <Title>RETRAVEL {area}</Title>
             </div>
-            <PostWrapper>
-                <PostPreview image='../img/travel.jpeg'>
-                    <AreaName>{area}</AreaName>
-                    <Like>♡10</Like>
-                </PostPreview>
-                <PostPreview image='../img/travel.jpeg'>
-                    <AreaName>{area}</AreaName>
-                    <Like>♡10</Like>
-                </PostPreview>
-                <PostPreview image='../img/travel.jpeg'>
-                    <AreaName>{area}</AreaName>
-                    <Like>♡10</Like>
-                </PostPreview>
-                <PostPreview image='../img/travel.jpeg'>
-                    <AreaName>{area}</AreaName>
-                    <Like>♡10</Like>
-                </PostPreview>
-                <PostPreview image='../img/travel.jpeg'>
-                    <AreaName>{area}</AreaName>
-                    <Like>♡10</Like>
-                </PostPreview>
-                <PostPreview image='../img/travel.jpeg'>
-                    <AreaName>{area}</AreaName>
-                    <Like>♡10</Like>
-                </PostPreview>
-                <PostPreview image='../img/travel.jpeg'>
-                    <AreaName>{area}</AreaName>
-                    <Like>♡10</Like>
-                </PostPreview>
-                <PostPreview image='../img/travel.jpeg'>
-                    <AreaName>{area}</AreaName>
-                    <Like>♡10</Like>
-                </PostPreview>
-            </PostWrapper>
+            <div style={{marginLeft: '10%'}}>
+                <PostWrapper posts={posts}></PostWrapper>
+            </div>
             <Footer/>
         </div>
     )

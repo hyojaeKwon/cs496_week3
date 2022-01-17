@@ -1,5 +1,7 @@
 import React, { FormEventHandler } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const Wrapper = styled.div`
     width: 30rem;
@@ -33,7 +35,7 @@ const SubmitButton = styled.button`
     color: white;
 `;
 
-const Auth = ({ type, form, onChange, onSubmit }) => {
+const Auth = ({ type, form, onChange, onSubmit}) => {
 
     return(
         <Wrapper>
@@ -44,7 +46,7 @@ const Auth = ({ type, form, onChange, onSubmit }) => {
                     <Input name="name" placeholder="이름" onChange={onChange} value={form.name}/>
                     <Input name="password" placeholder="비밀번호" onChange={onChange} value={form.password}/>
                     <Input name="passwordConfirm" placeholder="비밀번호 확인" onChange={onChange} value={form.passwordConfirm}/>
-                    <SubmitButton>회원가입</SubmitButton>
+                    <SubmitButton type="submit">회원가입</SubmitButton>
                 </form>
             )}
             {type === 'signin' && (

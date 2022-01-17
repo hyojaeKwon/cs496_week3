@@ -1,11 +1,14 @@
 import React, { ChangeEvent, FormEvent, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 import { changeField, initializeForm } from '../../module/auth';
 import Auth from '../../component/auth';
 
 const SigninForm = () => {
     const dispatch = useDispatch();
     const form = useSelector((state) => state.auth.signin);
+    const history = useHistory();
 
     const onChange = e => {
         const { name, value } = e.target;
@@ -15,14 +18,26 @@ const SigninForm = () => {
     }
 
     const onSubmit = e => {
-        e.preventDault();
+        e.preventDefault();
         const { id, password } = form;
-        
         const SigninData = {
-            id: id,
-            password: password,
+            "username": id,
+            "password": password,
         };
-        //signin api 호출
+        
+        axios.post('http://192.249.18.146:443/api/auth/login', SigninData)
+            .then(function (response) {
+                console.log(response.data.token);
+                localStorage.setItem('login-token', response.data.token);
+
+                history.push('/');
+            })
+            .catch(function (error) {
+                console.log('에러 발생')
+            })
+
+
+
 
         dispatch(
             initializeForm('signin')

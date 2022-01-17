@@ -1,11 +1,14 @@
 import React, { ChangeEvent, FormEvent, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 import { changeField, initializeForm } from '../../module/auth';
 import Auth from '../../component/auth';
 
 const SignupForm = () => {
     const dispatch = useDispatch();
     const form = useSelector((state) => state.auth.signup);
+    const history = useHistory();
 
     const onChange = e => {
         const { name, value } = e.target;
@@ -15,7 +18,7 @@ const SignupForm = () => {
     }
 
     const onSubmit = e => {
-        e.preventDault();
+        e.preventDefault();
         const { id, name, password, passwordConfirm } = form;
 
         if(password !== passwordConfirm) {
@@ -23,13 +26,24 @@ const SignupForm = () => {
             return;
         }
 
+        console.log('회원가입 중 ');
+
         const SignupData = {
-            id: id,
-            name: name,
-            password: password,
+            "username": id, 
+            "nickname": name,
+            "password": password,
         };
 
-        // Signup api 호출
+        axios.post('http://192.249.18.146:443/api/auth/register', SignupData)
+            .then(function (response) {
+                console.log('성공');
+
+                history.push('/');
+            })
+            .catch(function (error) {
+                console.log('에러 발생')
+            })
+
 
 
         dispatch(
@@ -45,8 +59,8 @@ const SignupForm = () => {
         <Auth
             type='signup'
             form={form}
-            onChange={onChange}
             onSubmit={onSubmit}
+            onChange={onChange}
         />
     )
 }
