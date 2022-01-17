@@ -6,12 +6,9 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
-<<<<<<< HEAD
     "axios": "^0.24.0",
     "cors": "^2.8.5",
-=======
     "flatpickr": "^4.6.9",
->>>>>>> ca9300788442cef21e3dba1bcd3186bc832eb3c2
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-datepicker": "^3.8.0",
