@@ -19,29 +19,35 @@ const SDatePicker = styled(DatePicker)`
   border: 1px solid #ccc;
   font-size: 12px;
 `
-
-const SelectBox = () => {
-  return (
-    <select >
-                            <option key="1" value="식사">식사</option>
-                            <option key="2" value="유흥">유흥</option>
-                            <option key="3" value="카페">카페</option>
-                            <option key="4" value="휴식">휴식</option>
-                            <option key="5" value="숙소">숙소</option>
-                            <option key="6" value="기타">기타</option>
-    </select>
-  )
-}
+// class PlanModal extends React.Component{
+//   constructor(props){
+//     super(props);
+//     this.state = {
+//       date : useState(new Date()),
+//       [startDate, setStartDate] : useState(new Date()),
+//       [searchPlace, setSearchPlace] : useState(''),
+//       { open, close, header, addPlace, addLatitude, addLongitude } : props;
+//     }
+//   }
+// }
 const PlanModal = (props) => {
+  // handleChange(e){
+  //   this.setState({type : e.target.type.value})
+  // }
 
   // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
   const { open, close, header, addPlace, addLatitude, addLongitude } = props;
   const [searchPlace, setSearchPlace] = useState('');
   const [startDate, setStartDate]=useState(new Date());
-  const { date } = useState(new Date());
+  const [Selected, setSelected] = useState("");
+  // const { date } = useState('');
   const type = useState('');
 
- 
+  const handleSelect = (e) => {
+    console.log(e.target.value);
+    setSelected(e.target.value);
+  };
+  
   return (
     // 모달이 열릴때 openModal 클래스가 생성된다.
     <div className={open ? 'openModal modal' : 'modal'}>
@@ -69,19 +75,18 @@ const PlanModal = (props) => {
                         <DatePicker 
                           style={{'paddingLeft': '10px'}} 
                           selected={startDate} 
-                          onChange={date => setStartDate(date)}
-                          startDate={date}/>
+                          onChange={date => setStartDate(date)}/>
                       </div>
 
                       <div style={{"display":"flex"}}>
                         <div style={{ 'marginRight': '10px'}}>활동 내용 : </div> 
-                          <select name="type" onChange={(e) => {type = e.target.type.value}}>
-                            <option key="1" value="식사">식사</option>
-                            <option key="2" value="유흥">유흥</option>
-                            <option key="3" value="카페">카페</option>
-                            <option key="4" value="휴식">휴식</option>
-                            <option key="5" value="숙소">숙소</option>
-                            <option key="6" value="기타">기타</option>
+                          <select name="type" onChange={handleSelect}  value={Selected}>
+                            <option key="1" value="dining">식사</option>
+                            <option key="2" value="mead">유흥</option>
+                            <option key="3" value="cafe">카페</option>
+                            <option key="4" value="meditation">휴식</option>
+                            <option key="5" value="accomodation">숙소</option>
+                            <option key="6" value="guitar">기타</option>
                           </select>
                       </div>
 
@@ -91,7 +96,7 @@ const PlanModal = (props) => {
                         <button type="submit" style={{marginLeft: '10px', backgroundColor: '#4F8A8B'}}>검색하기</button>
                       </div>
                     </div>
-                    <PlanMap date={Date(startDate)} type={type} searchPlace={searchPlace} addPlace={addPlace} addLatitude={addLatitude} addLongitude={addLongitude} close={close}/>
+                    <PlanMap date={startDate} type={Selected} searchPlace={searchPlace} addPlace={addPlace} addLatitude={addLatitude} addLongitude={addLongitude} close={close}/>
             </form>
           </Footer>
         </Section>
@@ -99,23 +104,6 @@ const PlanModal = (props) => {
     </div>
   );
 };
-
-
-// .modal button {
-//   outline: none;
-//   cursor: pointer;
-//   border: 0;
-// }
-// .modal > section {
-//   width: 90%;
-//   max-width: 1060px;
-//   margin: 0 auto;
-//   border-radius: 0.3rem;
-//   background-color: #fff;
-//   /* 팝업이 열릴때 스르륵 열리는 효과 */
-//   animation: modal-show 0.3s;
-//   overflow: hidden;
-// }
 
 const Section = styled.div`
   width: 90%;

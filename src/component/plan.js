@@ -1,7 +1,8 @@
 import React, { Component, useState } from 'react';
 import PlanModal from './planModal';
-
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Plan from "../pages/plan";
 // import PlanCard from '../component/plancard';
 
 
@@ -19,14 +20,17 @@ export default class MakePlans extends Component {
     console.log("클릭")
   }
   closeModal = (items,date,type) => {
-    console.log("type :" + type)
+    console.log(type)
     this.setState({ modalOpen: false })
     if(items !== undefined){
       var obj = new Object();
-      const dateTempArray = date.split(" ");
-
-      obj['month'] = dateTempArray[1];
-      obj['day'] = dateTempArray[2];
+      // console.log(date.prototype.toString())
+      // const dateTempArray = date.string 
+      var dateObj = new Date(date);
+      console.log(dateObj.getMonth())
+      obj['month'] = dateObj.getMonth()+1;
+      obj['day'] = dateObj.getDate();
+      // console.log(obj['month']);
       obj['location'] = items['place_name'];
       obj['where'] = items['address_name'];
       obj['x'] = items['x']
@@ -46,9 +50,13 @@ export default class MakePlans extends Component {
       // console.log(this.planInfo)
       // console.log(props)
       const newPlans = <PlanCard key={position} props={props}/>
+      const nowPlan = new Object();
+      nowPlan['x'] = props['x'];
+      nowPlan['y'] = props['y'];
       // this.setState({planInfo:[props]});
       // console.log(plans)
-      this.setState({plans:[...plans,newPlans],planInfo:[...planInfo,props]});
+      this.setState({plans:[...plans,newPlans],planInfo:[...planInfo,nowPlan]});
+      console.log(planInfo);
     })
   }
 
@@ -74,17 +82,59 @@ export default class MakePlans extends Component {
           <PlanContainer>
             {plans}
           </PlanContainer>
-          
+          <BottomWrapper>
+            <GoButton to={{
+              pathname : '/plan',
+              state: {
+                files: planInfo,
+              }
+            }}>
+              <div style={{"display":"flex","flexDirection":"column","justifyContent":"center","height":"100%"}}>
+                <div>계획 완성하기</div>
+              </div>
+            </GoButton>
+          </BottomWrapper>
           <div style={{'display':'flex'}}>
           </div>
           <PlanModal open={ this.state.modalOpen } close={ this.closeModal } title="Create a chat room"></PlanModal>
-          
         </WrapperInner>
       </Wrapper>
     );
   }
 
 }
+
+const GoButton = styled(Link)`
+  border: 0.5px solid #4F8A8B;
+  width: 122px;
+  color: #fff;
+  /* background-color: #4F8A8B; */
+  height: 40px;
+  background-color: #4F8A8B;
+  border-radius: 3px;
+  font-size: 13px;
+  line-height: 15px;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  &:hover{
+    color: #4F8A8B;
+    background-color: #fff;
+    border: 0.5px solid #4F8A8B;
+  }
+`;
+
+const BottomWrapper = styled.div`
+  width: 100%;
+  margin-top: 10px;
+  padding-top: 10px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: end;
+  border-top: 0.3px solid #e3e3e3;
+`;
 
 const Wrapper = styled.div`
   width: 100%;
@@ -105,6 +155,8 @@ const TitleContainer = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   font-weight: 600;
+  padding-bottom: 20px;
+  border-bottom: 0.3px solid #e3e3e3;
 `;
 
 const Where = styled.span`
@@ -138,6 +190,3 @@ const PlanContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 `
-// function Plan(){
-
-// }

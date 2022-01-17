@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 
 const { kakao } = window;
 
-const RouteMap = () => {
+const RouteMap = ({location}) => {
+    
+    // console.log(files);
     useEffect(() => {
         const average = ( arr ) => {
             var sum = 0;

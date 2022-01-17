@@ -2,6 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import PlanCardMap from "./planCardMap";
 
+import Cafe from "../img/cafe.png";
+import Meditation from "../img/meditation.png";
+import Accomodation from "../img/accomodation.png";
+import Mead from "../img/mead.png";
+import Guitar from "../img/guitar.png";
+import Dining from "../img/dining.png"
+
 const Wrapper = styled.div`
   width : 300px;
   height : 373px;
@@ -79,15 +86,38 @@ export function PlanCard(props){
   var mapObj = new Object();
   mapObj['x'] = prop['x'];
   mapObj['y'] = prop['y'];
-  // console.log(mapObj)
-  // console.log(month)
+  
+  const ImgSrc = (type)=>{
+  
+      if(type == "accomodation"){
+        return Accomodation;
+      }
+      if(type === "cafe"){
+        return Cafe;
+      }
+      if(type === "guitar"){
+        return Guitar;
+      }
+      if(type === "mead"){
+        return Mead;
+      }
+      if(type === "meditation"){
+        return Meditation;
+      }
+      if(type=="dining"){
+        return Dining;
+      }
+    
+  }
+  
   return (
     <Wrapper>
       <InnerWrapper>
-        <PicContainer>
-          {/* <PlanCardMap
-            props = { mapObj }
-          /> */}
+        <PicContainer style={{"display":"flex", "justifyContent": "center" }}>
+          <img
+          style={{"width":"50%","marginTop":"15px","marginBottom":"15px"}}
+            src={ImgSrc(type)}
+            alt="imgae"/>
         </PicContainer>
           <DayContainer>
             <DayText>
