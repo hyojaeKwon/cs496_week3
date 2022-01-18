@@ -12,6 +12,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
 import axios from 'axios';
 
+
 const NewBackGround = styled(BackGround)`
   margin-bottom: 70px;
   width: 1060px;
@@ -27,7 +28,6 @@ const TrendingPost = () => {
   SwiperCore.use([Navigation]);
 
   const [posts, setPosts] = useState([]);
-
   useEffect(() => {
     axios.get('http://192.249.18.146:443/api/posts/top-liked-posts', {
         headers: {"Authorization": "Token " + localStorage.getItem('login-token'),}
@@ -61,7 +61,7 @@ const TrendingPost = () => {
       pagination={{ clickable:true }}
       onSwiper={swiper => console.log(swiper)}
       >
-        <SwiperSlide style={{height: '700px'}}>
+        <SwiperSlide style={{'height':'700px'}}>
           <CardHolder>
             {
               posts.slice(0, 4).map(post => 

@@ -42,7 +42,7 @@ const Main = () => {
             <SetComponent>
                 <FirstComponent/>
                 <TrendingSite/>
-                <MainSwipe/>
+                {/* <MainSwipe/> */}
                 <TrendingPost/>
                 <Footer/>
             </SetComponent>
