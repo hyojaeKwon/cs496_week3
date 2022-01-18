@@ -7,8 +7,9 @@ import Plan from "../pages/plan";
 
 
 export default class MakePlans extends Component {
-
+   
   state = {
+    areaName : "",
     plans : [],
     planInfo : [],
     date: new Date(),
@@ -61,7 +62,7 @@ export default class MakePlans extends Component {
   }
 
   render(){
-    
+    const area = this.props.area;
     const {plans,planInfo} = this.state;
     return(
       <Wrapper>
@@ -69,7 +70,7 @@ export default class MakePlans extends Component {
           <TitleContainer>
             <div>
               <Where>
-                경기 고양시
+                {area}
               </Where>
               <SemiWhere>
                 여행 계획 세우기
@@ -87,6 +88,7 @@ export default class MakePlans extends Component {
               pathname : '/plan',
               state: {
                 files: planInfo,
+                area : area
               }
             }}>
               <div style={{"display":"flex","flexDirection":"column","justifyContent":"center","height":"100%"}}>
@@ -188,5 +190,6 @@ const AddBtn = styled.button`
 
 const PlanContainer = styled.div`
   display: grid;
+  min-height: 600px;
   grid-template-columns: 1fr 1fr 1fr;
 `

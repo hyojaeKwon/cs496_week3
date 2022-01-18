@@ -69,7 +69,7 @@ const RouteMap = (locArray) => {
             strokeOpacity: 0.9,
             strokeStyle: 'solid',
         });
-    }, [])
+    }, [locArray])
 
     return(
         <div id="map" style={{'width': '700px', 'height': '700px'}}></div>

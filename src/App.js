@@ -14,6 +14,7 @@ import Post from './pages/post';
 import SearchPost from './pages/searchmap';
 import AreaPost from './pages/areapost';
 import MakePlan from './pages/makeplan';
+import SelectCity from './pages/select';
 
 function App() {
   return (
@@ -31,7 +32,8 @@ function App() {
         <Route path="/post/:username/:area" component={UserPost}/>
         <Route path="/posting/:username/:area" exact={true} component={Upload}/>
         <Route path="/posting/:username/:area/detail" exact={true} component={Post}/>
-        <Route path="/make/plan" component={MakePlan}/>
+        <Route path="/make/plan/:area" component={MakePlan}/>
+        <Route path="/select" component={SelectCity}/>
     </div>
   );
 }
