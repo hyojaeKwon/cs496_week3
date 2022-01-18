@@ -34,7 +34,7 @@
 
 - 인기 포스트 8개 보여줌 (로그인 했을 때)
 
-  ![image-20220118194831250](C:\Users\hyojaeKwon\AppData\Roaming\Typora\typora-user-images\image-20220118194831250.png)
+  <img src="./image/1.png" width="300px"/>
 
   
 
@@ -42,7 +42,8 @@
 
 - 리트래블에 대한 설명이 나와있음
 
-![image-20220118194809361](C:\Users\hyojaeKwon\AppData\Roaming\Typora\typora-user-images\image-20220118194809361.png)
+  <img src="./image/3.png" width="300px"/>
+
 
 ## 여행 계획
 
@@ -54,7 +55,8 @@
 
 4. 추천 지역 포스트를 눌러 자신의 여행 계획 완성도를 높인다. 
 
-![image-20220118194720800](C:\Users\hyojaeKwon\AppData\Roaming\Typora\typora-user-images\image-20220118194720800.png)
+  <img src="./image/4.png" width="300px"/>
+
 
 ## 나의 여행 지도 (로그인 필요)
 
@@ -70,7 +72,7 @@
 2. 지역 선택 후 티켓 클릭
 3. 다른 사람들이 올린 여행 포스트 확인 가능
 
-![image-20220118194911967](C:\Users\hyojaeKwon\AppData\Roaming\Typora\typora-user-images\image-20220118194911967.png)
+  <img src="./image/2.png" width="300px"/>
 
 
 
@@ -90,7 +92,14 @@
 
 
 
-![image-20220118193810406](C:\Users\hyojaeKwon\AppData\Roaming\Typora\typora-user-images\image-20220118193810406.png)
+
+
+
+
+
+<추가>
+
+  <img src="./image/5.png" width="300px"/>
 
 참고 부탁드립니다. 권효재(GIST,20) '22년 5월 입대 희망 
 
