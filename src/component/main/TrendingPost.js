@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import Textholder from "./TrendingSite";
 // import Subtitle from "./TrendingSite";
 // import CardHolder from "./TrendingSite";
@@ -10,6 +10,7 @@ import "swiper/swiper.min.css";
 import "swiper/components/navigation/navigation.min.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
+import axios from 'axios';
 
 const NewBackGround = styled(BackGround)`
   margin-bottom: 70px;
@@ -25,6 +26,23 @@ const NewBackGround = styled(BackGround)`
 const TrendingPost = () => {
   SwiperCore.use([Navigation]);
 
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://192.249.18.146:443/api/posts/top-liked-posts', {
+        headers: {"Authorization": "Token " + localStorage.getItem('login-token'),}
+        })
+        .then(function (response) {
+            console.log('포스팅 가져오기 성공');
+            const data = response.data.slice(0, 8)
+            console.log(data);
+            setPosts([...posts, ...data]);
+            console.log(posts);
+        })
+        .catch(function (error) {
+            console.log('에러 발생')
+        })
+  }, [])
   return (
 <NewBackGround>
       <TextHolder>
@@ -43,21 +61,23 @@ const TrendingPost = () => {
       pagination={{ clickable:true }}
       onSwiper={swiper => console.log(swiper)}
       >
-        <SwiperSlide>
+        <SwiperSlide style={{height: '700px'}}>
           <CardHolder>
-            <PostCard/>
-            <PostCard/>
-            <PostCard/>
-            <PostCard/>
+            {
+              posts.slice(0, 4).map(post => 
+                <PostCard author={post.author.nickname} place={post.place} city={post.city} likes={post.like_users.length} content={post.contents} image={post.image}>
+                </PostCard>)
+            }
           </CardHolder>
         </SwiperSlide>
 
         <SwiperSlide>
           <CardHolder>
-            <PostCard/>
-            <PostCard/>
-            <PostCard/>
-            <PostCard/>
+            {
+              posts.slice(4, 8).map(post => 
+                <PostCard author={post.author.nickname} place={post.place} city={post.city} likes={post.like_users.length} content={post.contents} image={post.image}>
+                </PostCard>)
+            }
           </CardHolder>
         </SwiperSlide>
 

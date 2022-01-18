@@ -9,7 +9,7 @@ import travel from '../img/travel.jpeg';
 import PostWrapper from '../component/post/postwrapper';
 
 const Wrapper = styled.div`
-    width: 1060px;
+    width: 1200px;
     margin-left: 10%;
     margin-top: 3rem;
     font-family: SCDream4;
@@ -39,34 +39,6 @@ const Introduction = styled.div`
 
 `
 
-const PostPreview = styled.div`
-    width: 15rem;
-    height: 20rem;
-    display: inline-block;
-    margin-top: 1rem;
-    margin-left: 1rem;
-    background-color: #cfcfcf;
-    border-radius: 1rem;
-    background-image: url(${travel});
-`;
-
-const AreaName = styled.div`
-    display: inline-block;
-    margin-left: 1rem;
-    margin-top: 17.5rem;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: 600;
-`;
-
-const Like = styled.div`
-    display: inline-block;
-    margin-left: 6rem;
-    margin-top: 17.5rem;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: 600;
-`;
 
 const MyPage = () => {
     const isAuthorized = localStorage.getItem('login-token');
@@ -78,7 +50,7 @@ const MyPage = () => {
         })
         .then(function (response) {
             console.log('포스팅 가져오기 성공');
-            const data = response.data;
+            const data = response.data.slice(0, 8);
             console.log(data);
             setPosts([...posts, ...data]);
             console.log(posts);

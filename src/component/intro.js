@@ -52,6 +52,7 @@ const Intro = () => {
                     <p/>새로운 곳을 간접여행 하는 듯한 경험을 제공합니다
                 </Content>
             </Text>
+            <div></div>
             <Text>
                 <Title>
                     나만의 기록
