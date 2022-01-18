@@ -7,6 +7,7 @@ width: 100%;
 height: 95%;
 margin-top: 5px;
 border-radius: 5px;
+font-family: SCDream4;
 `;
 
 class PlanCardMap extends React.Component{

@@ -121,6 +121,7 @@ const GoButton = styled(Link)`
   display: inline-block;
   align-items: center;
   justify-content: center;
+  font-family: SCDream4;
   &:hover{
     color: #4F8A8B;
     background-color: #fff;
@@ -142,6 +143,7 @@ const Wrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  font-family: SCDream4;
 `;
 
 const WrapperInner = styled.div`
@@ -164,17 +166,20 @@ const TitleContainer = styled.div`
 const Where = styled.span`
   font-size: 36px;
   line-height: 42px;
+  font-family: SCDream5;
   margin-bottom: 10px;
 `
 const SemiWhere = styled.span`
-  font-size: 28px;
+  font-size: 25px;
   line-height: 33px;
   color: #848484;
   /* padding-top: 10px; */
   margin-left: 10px;
+  font-family: SCDream4;
 `;
 const AddBtn = styled.button`
   border: 0.5px solid #848484;
+  font-family: SCDream4;
   width: 122px;
   height: 40px;
   background-color: rgba(217, 217, 217, 0);

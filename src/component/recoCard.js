@@ -30,7 +30,7 @@ const RecoCard = ({ posts, changeItems}) => {
             <img src={'http://192.249.18.146:443'  + item.image} style={{width:'90%',height:'auto','overflow':'hidden','marginLeft':'18px'}}>
               
             </img>
-            <div style={{'fontSize':'20px','fontWeight':'700',color: '#4F8A8B','margin-left':'18px'}}>
+            <div style={{'fontSize':'20px','fontWeight':'700',color: '#4F8A8B','margin-left':'18px', 'marginTop': '10px'}}>
               {item.place}
             </div>
             <div style={{'fontSize':'13px','color':'#848484','margin-left':'18px'}}>
@@ -45,6 +45,7 @@ const RecoCard = ({ posts, changeItems}) => {
 }
 
 const Wrapper = styled.div`
+ font-family: SCDream4;
   width: 320px;
   background-color : rgba(241, 241, 241, 0.4);
   margin-left: 5px;

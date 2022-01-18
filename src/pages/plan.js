@@ -78,6 +78,7 @@ const Plan = ({location,match}) => {
 	)
 };
 const RecoContainer = styled.div`
+	font-family: SCDream4;	
 	height: 700px;
 	width: 350px;
 	overflow-y: scroll;
@@ -92,6 +93,7 @@ const Button = styled.button`
 	border: 0.5px solid #4F8A8B;
   width: 122px;
   color: #fff;
+  font-family: SCDream4;
   /* background-color: #4F8A8B; */
   height: 40px;
   background-color: #4F8A8B;
@@ -111,15 +113,17 @@ const Button = styled.button`
 `;
 
 const Title = styled.div`
+	font-family: SCDream5;
 	font-weight: 600;
-	font-size: 36px;
+	font-size: 33px;
 	margin-left: 10px;
 	line-height: 42px;
 `;
 
 const SubTitle = styled.div`
-	font-weight: 600;
-	font-size: 28px;
+	font-family: SCDream5;
+	font-weight: 400;
+	font-size: 25px;
 	line-height: 33px;
 	margin-left: 10px;
 	color: #848484;
