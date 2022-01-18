@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Main from '../../pages/main';
+import { Link } from 'react-router-dom';
 // import { BackGround } from './TrendingSite';
 
 //카드 전체
@@ -71,7 +71,7 @@ const Post = styled.span`
   margin-top: 6px;
 `;
 
-const GoBtn = styled.a`
+const GoBtn = styled(Link)`
   background-color: #FFFFFF;
   position: absolute;
   width: 75px;
@@ -86,24 +86,25 @@ const GoBtn = styled.a`
   padding-bottom: 18px;
   align-items: center;
   text-align: center;
+  text-decoration: none;
   line-height: 1;
   &:hover{
     transition: box-shadow .1s ease-out,background-color .1s ease-out,color .1s ease-out,border-bottom .1s ease-out;
   }
 `;
 
-const TravelCard = () => {
+const TravelCard = ({city, imgUrl, rate, posts}) => {
+  const path = '/search/post/' + city;
   return (
     <Card>
-      <Img className="hov" src='https://cphoto.asiae.co.kr/listimglink/6/2017091415054302292_1.jpg'/>
+      <Img className="hov" src={imgUrl}/>
       <BackImg />
-
       <InnerCard>
-        <Rate># 1</Rate>
-        <Where>경기 고양시</Where>
-        <Post>220개의 Posts</Post>
+        <Rate># {rate}</Rate>
+        <Where>{city}</Where>
+        <Post>{posts}개의 Posts</Post>
       </InnerCard>
-        <GoBtn path='/' component={Main}>
+        <GoBtn to={path}>
           둘러 보기
         </GoBtn> 
 

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from 'styled-components';
+import Modal from '../Modals/Modal';
 // import {Background,Textholder,Subtitle,Title,CardHolder} from "./TrendingSite";
 
 import "swiper/swiper.min.css";
@@ -9,7 +10,8 @@ const Container = styled.div`
   width: 250px;
   height: 333px;
   position: relative;
-  background-color: #cecece;
+  background-image: url(${props => props.image});
+  background-size: cover;
   border-radius: 8px;
 `;
 
@@ -36,16 +38,24 @@ const Like = styled.div`
     font-family: SCDream5;
 `;
 
-const PostCard = () => {
-  return (
-    <Container>
+const PostCard = ({author, place, city, likes, content, image}) => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const imageUrl = 'http://192.249.18.146:443' + image;
+
+  const openModal = () => {
+      console.log('clicked');
+      setModalOpen(true);
       
-        <AreaName>
-          경기 고양시
-        </AreaName>
-        <Like>
-          ♡10
-        </Like>  
+  }
+
+  const closeModal = () => {
+      setModalOpen(false);
+  }
+  return (
+    <Container image={imageUrl} onClick={openModal}>
+        <AreaName>{city}</AreaName>
+        <Like>♡{likes}</Like>
+        <Modal open={modalOpen} close={closeModal} author={author} place={place} city={city} likes={likes} content={content} image={imageUrl}></Modal>  
     </Container>
   );
 };
