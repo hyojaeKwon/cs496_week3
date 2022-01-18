@@ -71,16 +71,16 @@ const PlanModal = (props) => {
                     <div style={{'display':'flex','flexDirection':'column','alignItems':'flex-end','justifyContent':'space-between'}}>
 
                       <div style={{'display':'flex','alignItems':'center'}}>
-                        <div style={{ 'marginRight': '10px'}}>여행 날자 : </div> 
+                        <div style={{ 'marginRight': '30px'}}>여행 날짜 : </div> 
                         <DatePicker 
                           style={{'paddingLeft': '10px'}} 
                           selected={startDate} 
                           onChange={date => setStartDate(date)}/>
                       </div>
 
-                      <div style={{"display":"flex"}}>
-                        <div style={{ 'marginRight': '10px'}}>활동 내용 : </div> 
-                          <select name="type" onChange={handleSelect}  value={Selected}>
+                      <div style={{"display":"flex", marginTop: '10px'}}>
+                        <div style={{ marginRight: '30px'}}>활동 내용 : </div> 
+                          <select name="type" onChange={handleSelect}  value={Selected} style={{marginRight: '100px'}}>
                             <option key="1" value="dining">식사</option>
                             <option key="2" value="mead">유흥</option>
                             <option key="3" value="cafe">카페</option>
@@ -90,10 +90,10 @@ const PlanModal = (props) => {
                           </select>
                       </div>
 
-                      <div style={{'display':'flex','alignItems':'center'}}>
-                        <div style={{ 'marginRight': '10px'}}>키워드 : </div>
+                      <div style={{'display':'flex','alignItems':'center', marginTop: '10px'}}>
+                        <div style={{ 'marginRight': '15px'}}>키워드 : </div>
                         <Input type="text" name="keyword" size="15" /> 
-                        <button type="submit" style={{marginLeft: '10px', backgroundColor: '#4F8A8B'}}>검색하기</button>
+                        <button type="submit" style={{marginLeft: '10px', backgroundColor: '#4F8A8B',fontFamily: 'SCDream4'}}>검색하기</button>
                       </div>
                     </div>
                     <PlanMap date={startDate} type={Selected} searchPlace={searchPlace} addPlace={addPlace} addLatitude={addLatitude} addLongitude={addLongitude} close={close}/>

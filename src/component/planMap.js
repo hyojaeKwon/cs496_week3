@@ -145,8 +145,6 @@ const PlanMap = ({ date, type, searchPlace, addPlace, addLatitude, addLongitude,
                     <div>
                         <span>{item.road_address_name}</span>
                         <div>{item.address_name}</div>
-                        <div>위도: {item.y}</div>
-                        <div>경도: {item.x}</div>
                     </div> ) : (
                     <div>{item.address_name}</div>
                 )}
