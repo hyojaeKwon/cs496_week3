@@ -50,6 +50,7 @@ const Rate = styled.span`
   margin-left: 18px; */
   padding-top : 26px;
   font-weight: 600;
+  font-family: SCDream5;
   font-size: 48px;
   line-height: 56px;
   color: #ffffff;
@@ -60,6 +61,7 @@ const Where = styled.span`
   color: #ffffff;
   margin-top: 13px;
   font-weight: 600;
+  font-family: SCDream5;
   font-size: 24px;
 `;
 
@@ -76,6 +78,7 @@ const GoBtn = styled.a`
   padding-top: 12px;
   color: #495056;
   font-size: 12px;  
+  font-family: SCDream5;
   left: 24px;
   border-radius: 4px;
   font-weight: 700;

@@ -8,11 +8,12 @@ import travel from '../img/travel.jpeg';
 import PostWrapper from '../component/post/postwrapper';
 
 const Title = styled.div`
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     color: #686D76;
     font-weight: 400;
     margin-top: 3rem;
     margin-left: 10%;
+    font-family: SCDream5;
 `;
 
 const PostPreview = styled.div`

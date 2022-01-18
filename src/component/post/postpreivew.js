@@ -21,6 +21,7 @@ const AreaName = styled.div`
     color: white;
     font-size: 1.5rem;
     font-weight: 600;
+    font-family: SCDream4;
 `;
 
 const Like = styled.div`
@@ -30,6 +31,7 @@ const Like = styled.div`
     color: white;
     font-size: 1.5rem;
     font-weight: 600;
+    font-family: SCDream4;
 `;
 
 const PostPreview = ({author, place, city, likes, content, image}) => {

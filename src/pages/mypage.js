@@ -12,13 +12,14 @@ const Wrapper = styled.div`
     width: 1060px;
     margin-left: 10%;
     margin-top: 3rem;
+    font-family: SCDream4;
 `
 
 const Title = styled.div`
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 600;
     color: #5c5c5c;
-    margin-top: 1rem;
+    margin-top: 3rem;
     margin-bottom: 2rem;
     margin-left: 2rem;
 `
@@ -94,13 +95,13 @@ const MyPage = () => {
                     <Header/>
                     <Navigation/>
                     <Wrapper>
-                        <div style={{fontSize: '1.8rem', fontWeight: 600, color: '#4F8A8B', display: 'inline-block', marginLeft: '2rem'}}>최윤지</div>
-                        <div style={{fontSize: '1.5rem', fontWeight: 600, color: '#686D76', display: 'inline-block'}}>님의 프로필</div>
-                        <div style={{fontSize: '1.2rem', fontWeight: 500, backgroundColor: '#4F8A8B', display: 'inline-block', color: 'white', marginLeft: '2rem', padding: '0.3rem', borderRadius: '0.2rem'}}>FOLLOW</div>
+                        <div style={{fontSize: '1.6rem', fontWeight: 600, color: '#4F8A8B', display: 'inline-block', marginLeft: '2rem'}}>최윤지</div>
+                        <div style={{fontSize: '1.4rem', fontWeight: 600, color: '#686D76', display: 'inline-block'}}>님의 프로필</div>
+                        <div style={{fontSize: '1.0rem', fontWeight: 500, backgroundColor: '#4F8A8B', display: 'inline-block', color: 'white', marginLeft: '2rem', padding: '0.3rem', borderRadius: '0.2rem'}}>FOLLOW</div>
                         <div style={{width: '80%', height: '1rem', borderBottom: '1px solid #e3e3e3'}}></div>
                         <Title>자기소개</Title>
                         <Introduction>
-                            이것은 자기소개입니다.
+                            여행하기를 좋아하는 23살 :D
                         </Introduction>
                         <Title>최근 포스팅</Title>
                         <PostWrapper posts={posts}></PostWrapper>

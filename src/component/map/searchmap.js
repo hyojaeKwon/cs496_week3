@@ -9,6 +9,7 @@ const Wrapper = styled.div`
 	margin-left: 200px;
 	margin-top: 100px;
 	display: inline-block;
+	font-family: SCDream4;
 `;
 
 
@@ -37,6 +38,7 @@ const PopupWrapper = styled.div`
     border-radius: 1.5rem;
     color: white;
     font-weight: 500;
+	font-family: SCDream4;
     opacity: 0.9;
 	display: inline-block;
 `;

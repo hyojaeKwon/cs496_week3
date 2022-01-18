@@ -1,6 +1,7 @@
 import React from 'react';
 import './modal.css';
 import styled from 'styled-components';
+import back from '../../img/back.png';
 
 
 // //modal
@@ -21,6 +22,7 @@ const ModalContainer = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
+  font-family: SCDream4;
   @media (max-width: 1000px){
     display: flex;
     flex-direction: column;
@@ -74,17 +76,18 @@ const AuthorSpan = styled.span`
 `;
 
 const Place = styled.div`
-  padding-top: 10px;
-  font-size: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 27px;
   font-weight: 650;
 `;
 
 const Text = styled.div`
   color: #4F8A8B;
-  font-size: 12px;
+  font-size: 15px;
   /* line-height: 0.2em; */
-  padding-top: 14px;
-  padding-bottom: 14px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   border-bottom: 0.5px solid #4F8A8B;
 `;
 
@@ -95,16 +98,16 @@ const Like = styled.button`
 
 const Back = styled.img`
   position: absolute;
-  top: 2px;
-  right:18px;
-  width : 5px;
+  top: 3px;
+  right:15px;
+  width : 15px;
   height: auto;
 `
 const Modal = (props) => {
-
+  
   Section.onClick = function(event){
     console.log(event.target.tagName)
-    if(event.target.tagName == this.tagName){
+    if(event.target.tagName === this.tagName){
       Section={close};
     }
   }
@@ -119,7 +122,7 @@ const Modal = (props) => {
           
           <Main>
             <ModalContainer>
-              <Back src='../../img/back.png' className="close" onClick={close}></Back>
+              <Back src={back} className="close" onClick={close}></Back>     
               <ImgContainer src={image}/>
               <DescContainer>
                   <Author>

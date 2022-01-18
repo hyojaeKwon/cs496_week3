@@ -9,6 +9,7 @@ const Wrapper = styled.div`
     margin-bottom: 5rem;
     color: #686D76;
     font-weight: 600;
+    font-family: SCDream4;
 `
 
 const AreaName = styled.div`
@@ -25,14 +26,14 @@ const UploadWrapper = styled.div`
 `
 
 const Button = styled.div`
-    width: 210px;
+    width: 215px;
     margin-left: 375px;
     padding: 0.4rem;
     text-decoration: none;
     background-color: #4F8A8B;
     border-radius: 0.5rem;
     opacity: 70%;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 350;
     color: white;
 `;

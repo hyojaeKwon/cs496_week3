@@ -18,6 +18,7 @@ const Nav = styled(Link)`
     display: inline-block;
     font-size: 1rem;
     font-weight: 600;
+    font-family: SCDream4;
     color: #686D76;
     text-decoration: none;
     &:hover{

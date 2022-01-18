@@ -28,12 +28,14 @@ export const TextHolder = styled.div`
 export const Title = styled.span`
   font-weight: 600;
   font-size: 36px;
+  font-family: SCDream5;
   line-height: 42px;
   margin-right: 10px;
 `;
 
 export const SubTitle = styled.span`
   font-size: 16px;
+  font-family: SCDream5;
 `
 
 const TrendingSite = () => {

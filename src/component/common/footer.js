@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import styled from "styled-components";
 
 
@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   background-color: rgba(234, 234, 234, 0.3);
   border-top: 1px solid #E9ECEF;
   margin-top: 200px;
+  font-family: SCDream4;
 `;
 
 const FooterContainer = styled.div`

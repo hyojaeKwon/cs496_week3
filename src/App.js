@@ -1,5 +1,6 @@
 import './App.css';
 import { Route } from 'react-router-dom';
+import GlobalFonts from './styles/style';
 import Main from './pages/main';
 import Intro from './pages/intro';
 import Plan from './pages/plan';
@@ -15,9 +16,9 @@ import AreaPost from './pages/areapost';
 import MakePlan from './pages/makeplan';
 
 function App() {
-  const isAuthorized = localStorage.getItem('login-token');
   return (
     <div>
+        <GlobalFonts/>
         <Route path="/" exact={true} component={Main}/>
         <Route path="/intro" component={Intro}/>
         <Route path="/signin" component={Signin}/>

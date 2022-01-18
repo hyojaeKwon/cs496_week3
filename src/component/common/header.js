@@ -17,7 +17,8 @@ const AuthButton = styled(Link)`
     margin-right: 2%;
     margin-top: 2%;
     vertical-align: top;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    font-family: SCDream4;
     text-decoration: none;
     border-color: #686D76;
     border: 1.5px solid;
@@ -52,7 +53,7 @@ const Header = () => {
                 <img src={logo} width='200' height='60' alt='logo'/>
             </Logo>
             { localStorage.getItem('login-token') !== null ? 
-                <AuthButton to='/' onClick={Logout}>로그아웃</AuthButton> :
+                <AuthButton to='/' onClick={Logout} style={{marginLeft: '50px'}}>로그아웃</AuthButton> :
                 <span> 
                     <AuthButton to='/signin'>로그인</AuthButton>
                     <AuthButton to='/signup'>회원가입</AuthButton>

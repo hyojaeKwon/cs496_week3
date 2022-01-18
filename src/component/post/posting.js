@@ -11,12 +11,14 @@ const Wrapper = styled.div`
     margin-bottom: 5rem;
     color: #686D76;
     font-weight: 600;
+    font-family: SCDream4;
 `
 
 const AreaName = styled.div`
     display: inline-block;
     font-size: 2rem;
     font-weight: 600;
+    font-family: SCDream4;
     color: #686D76;
     margin-right: 1.5rem;
 `
@@ -38,6 +40,7 @@ const Content = styled.input`
     padding: 0;
     font-size: 1.1rem;
     font-weight: 600;
+    font-family: SCDream4;
     color: #686D76;
     overflow: auto;
     textOverflow: ellipsis;
@@ -57,6 +60,7 @@ const PlaceInput = styled.button`
     text-align: center;
     font-size: 1.1rem;
     font-weight: 600;
+    font-family: SCDream4;
     background-color: white;
     color: #686D76;
 
@@ -72,6 +76,7 @@ const CostInput = styled.input`
     text-align: center;
     font-size: 1.1rem;
     font-weight: 600;
+    font-family: SCDream4;
     color: #686D76;
 
     -webkit-appearance: none;
@@ -88,6 +93,7 @@ const DateInput = styled.input`
     text-align: center;
     font-size: 1.1rem;
     font-weight: 600;
+    font-family: SCDream4;
     color: #686D76;
 
     :focus { outline: none; };
